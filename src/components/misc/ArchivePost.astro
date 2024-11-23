@@ -1,0 +1,68 @@
+---
+export interface Props {
+  slug: string;
+  title: string;
+  pubilished: Date;
+  tags: string[];
+}
+
+const { slug, title, pubilished, tags } = Astro.props;
+
+function formatDate(date: Date): string {
+  return date
+    .toLocaleDateString("zh-CN", {
+      month: "2-digit",
+      day: "2-digit",
+    })
+    .replaceAll("/", " - ");
+}
+
+const formattedDate = formatDate(pubilished);
+---
+
+<div class="item">
+  <a
+    href={slug}
+    class="flex flex-row items-center py-2 w-full hover:bg-[var(--primary-color-lighten)] rounded-md select-none transition-colors"
+  >
+    <div class="w-[15%] md:w-[10%] flex flex-row justify-end">
+      <p class="text-[var(--text-color-lighten)] text-sm date">
+        {formattedDate}
+      </p>
+    </div>
+    <div class="flex items-center h-full dash-line md:w-[10%] relative w-[15%]">
+      <div
+        class="item-dot transition-all mx-auto z-50 bg-[var(--text-color-lighten)] h-1 outline outline-4 outline-[var(--card-color)] rounded w-1"
+      >
+      </div>
+    </div>
+    <div class="flex flex-row">
+      <p class="title text-[var(--text-color)] font-semibold transition-all">
+        {title}
+      </p>
+    </div>
+  </a>
+
+  <style>
+    .date {
+      font-family: "Noto Sans SC", sans-serif;
+    }
+
+    .title {
+      font-family: "Noto Sans SC", sans-serif;
+    }
+
+    .item:hover .title {
+      @apply pl-2 text-[var(--primary-color)];
+    }
+
+    .dash-line::before {
+      @apply content-[''] absolute w-[10%] h-[40px] border-dashed border-l-2 top-1/2 border-l-[var(--text-color)] opacity-25 -translate-y-1/2;
+      left: calc(50% - 1px);
+    }
+
+    .item:hover .item-dot {
+      @apply bg-[var(--primary-color)] outline-[var(--primary-color-lighten)] h-4;
+    }
+  </style>
+</div>

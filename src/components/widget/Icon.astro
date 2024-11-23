@@ -1,0 +1,15 @@
+---
+export interface Props {
+  icon: string;
+}
+
+const props = Astro.props;
+---
+
+<div
+  class="flex flex-row items-center bg-[var(--primary-color-lighten)] rounded-lg p-1 dark:bg-[var(--card-color-lighten)]"
+>
+  <i
+    class:list={props.icon}
+    class="w-8 iconfont text-[var(--primary-color)] text-center text-lg"></i>
+</div>

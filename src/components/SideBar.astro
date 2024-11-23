@@ -1,0 +1,154 @@
+---
+import { YukinaConfig } from "../../yukina.config";
+import { GetCategories, GetTags } from "../utils/content";
+import SocialIcon from "./widget/SocialIcon.astro";
+
+const tags = await GetTags();
+const categories = await GetCategories();
+---
+
+<div class="w-full flex flex-row justify-center">
+  <div class="flex flex-col space-y-3">
+    <div
+      class="p-3 bg-[var(--card-color)] rounded-3xl onload-animation"
+      style=`animation-delay: var(--onload-animation-delay);`
+    >
+      <a href="/about" class="avatar-wrapper">
+        <img
+          src={YukinaConfig.Avatar}
+          alt="avatar"
+          class="avatar lozad select-none"
+        />
+      </a>
+      <div class="username mt-4">
+        <p>{YukinaConfig.Username}</p>
+        <div></div>
+      </div>
+      <p class="slogan text-center mt-1 text-[var(--text-color-lighten)]">
+        {YukinaConfig.Sign}
+      </p>
+      {
+        YukinaConfig.SocialLinks.length > 0 && (
+          <div class="flex flex-row justify-center mt-3">
+            <div class="flex flex-wrap gap-2 justify-center w-[184px]">
+              {YukinaConfig.SocialLinks.map((item) => (
+                <SocialIcon icon={item.icon} link={item.link} />
+              ))}
+            </div>
+          </div>
+        )
+      }
+    </div>
+
+    <!-- categories -->
+    <div
+      class="p-3 bg-[var(--card-color)] rounded-3xl space-y-2 onload-animation"
+      style=`animation-delay: calc(var(--onload-animation-delay) + 1 * var(--onload-animation-interval));`
+    >
+      <div class="title m-[0.375rem]">
+        <p class="text-xl font-bold pl-4 text-[var(--text-color)]">分类</p>
+      </div>
+      <div class="flex flex-col">
+        {
+          categories.keys().map((category) => (
+            <a
+              href={`/categories/${category}`}
+              class="category flex flex-row items-center justify-between hover:bg-[var(--primary-color-lighten)] py-2 px-3 rounded-lg transition-all"
+            >
+              <p class="text-[var(--text-color)] transition-all">
+                {categories.get(category)!.name}
+              </p>
+              <span class="py-0.5 px-2.5 rounded-md bg-[var(--primary-color-lighten)] text-[var(--primary-color)]">
+                {categories.get(category)!.posts.length}
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- tags -->
+    <div
+      class="p-3 bg-[var(--card-color)] rounded-3xl space-y-2 onload-animation"
+      style=`animation-delay: calc(var(--onload-animation-delay) + 2 * var(--onload-animation-interval));`
+    >
+      <div class="title m-[0.375rem]">
+        <p class="text-xl font-bold pl-4 text-[var(--text-color)]">标签</p>
+      </div>
+      <div class="flex flex-row flex-wrap max-w-[224px]">
+        {
+          tags.keys().map((tag) => (
+            <a
+              href={`/tags/${tag}`}
+              class="tag bg-[var(--primary-color-lighten)] py-1 px-2 rounded-md m-1 hover:brightness-95 transition-all"
+            >
+              <p class="text-[var(--primary-color)] text-sm">
+                {tags.get(tag)!.name}
+              </p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .avatar-wrapper::after {
+    @apply absolute top-3 left-3 content-[''] w-56 h-56 rounded-xl transition-all;
+  }
+
+  .avatar-wrapper::after:hover {
+    @apply bg-black/25 dark:bg-black/50;
+  }
+
+  .avatar {
+    @apply rounded-xl w-56 h-56 hover:cursor-pointer transition-all;
+  }
+
+  .username > p {
+    @apply text-xl font-semibold text-center text-[var(--text-color)];
+    font-family: "Raleway", "Noto Sans SC", sans-serif;
+  }
+
+  .username > div {
+    @apply w-8 h-1 bg-[var(--primary-color)] rounded-full mt-1 mx-auto;
+  }
+
+  .slogan {
+    font-family: "Raleway", "Noto Sans SC", sans-serif;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+  }
+
+  .title::before {
+    position: absolute;
+    display: block;
+    content: " ";
+    background-color: var(--primary-color);
+    top: 3px;
+    bottom: 3px;
+    width: 0.3rem;
+    border-radius: 4px;
+  }
+
+  .title p {
+    font-family: "Noto Sans SC", sans-serif;
+  }
+
+  .category {
+    font-family: "Noto Sans SC", sans-serif;
+  }
+
+  .category:hover > p {
+    @apply text-[var(--primary-color)] pl-2;
+  }
+
+  .tag {
+    font-family: "Noto Sans SC", sans-serif;
+  }
+</style>

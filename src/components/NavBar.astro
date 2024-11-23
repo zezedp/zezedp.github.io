@@ -1,0 +1,172 @@
+---
+import { YukinaConfig } from "../../yukina.config";
+---
+
+<nav class="nav" id="nav">
+  <div class="nav-content">
+    <div class="brand after:content-['']">
+      <button type="button">
+        <i class="iconfont ic-list icon"></i>
+      </button>
+      <a class="title" href="/">
+        {YukinaConfig.Title}
+      </a>
+    </div>
+    <a class="brand-lg" href="/">
+      <p class="title">
+        <i class="iconfont ic-home icon min-w-[24px]"></i>
+        {YukinaConfig.Title}
+      </p>
+    </a>
+    <div class="menu">
+      <a href="/">
+        <p>首页</p>
+      </a>
+      <a href="/archive">
+        <p>归档</p>
+      </a>
+      <!-- <a href="/bangumi">
+        <p>番剧</p>
+      </a> -->
+      <a href="/about">
+        <p>关于</p>
+      </a>
+      <!-- <a href="/bangumi">
+        <p>Github</p>
+      </a> -->
+    </div>
+    <div class="toolbar">
+      <div class="search">
+        <button type="button">
+          <i class="iconfont ic-search icon"></i>
+        </button>
+      </div>
+      <div class="theme">
+        <button type="button" id="theme-switcher">
+          <i class="iconfont icon" id="theme-icon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<style>
+  .nav {
+    @apply flex flex-col justify-end w-full fixed left-1/2 z-50 backdrop-blur-md bg-[var(--card-color-transparent)] px-4 select-none transition-all;
+    @apply lg:w-[var(--page-width-lg)] lg:rounded-b-2xl xl:w-[var(--page-width-xl)];
+    transform: translateX(-50%);
+    animation: 500ms nav-onload-animation;
+    animation-delay: var(--onload-animation-delay);
+  }
+
+  .nav-hidden {
+    transform: translateY(-5rem) translateX(-50%);
+    transition-property: transform;
+    transition-duration: 300ms;
+  }
+
+  .nav-content {
+    @apply flex items-center justify-between h-[4.5rem] w-full overflow-visible;
+  }
+
+  .brand {
+    @apply w-full flex flex-row justify-between items-center;
+    @apply lg:hidden;
+  }
+
+  .brand > .title {
+    @apply text-[var(--primary-color)] text-2xl content-center py-2 px-4 rounded-lg transition-all;
+    @apply hover:bg-[var(--primary-color-hover)];
+    font-family: var(--brand-font);
+  }
+
+  .brand button {
+    @apply w-[44px] h-[44px] mr-2 transition-all rounded-lg flex flex-row items-center text-[var(--text-color)];
+    @apply hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color)];
+  }
+
+  .brand .icon {
+    @apply w-full text-center text-2xl;
+  }
+
+  .brand-lg {
+    @apply hidden rounded-lg font-medium px-5 h-[3.25rem] transition-all;
+    @apply lg:block;
+    @apply hover:bg-[var(--primary-color-hover)];
+    @apply active:scale-95;
+  }
+
+  .brand-lg > .title {
+    @apply w-24 flex items-center flex-row text-[var(--primary-color)] text-2xl h-full content-center;
+    font-family: var(--brand-font);
+  }
+
+  .brand-lg .icon {
+    @apply text-2xl mr-2 stroke-2;
+  }
+
+  .menu {
+    @apply hidden items-center justify-between space-x-1 text-lg text-[var(--text-color)] opacity-85;
+    @apply lg:flex;
+  }
+
+  .menu a {
+    @apply flex items-center px-6 h-[3.25rem] rounded-lg transition-all;
+    @apply hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color)];
+  }
+
+  .menu p {
+    @apply font-medium leading-normal;
+    font-family: var(--primary-font);
+  }
+
+  .toolbar {
+    @apply flex flex-row items-center space-x-1 w-[92px];
+  }
+
+  .toolbar button {
+    @apply py-2 px-3 rounded-lg transition-all text-[var(--text-color)];
+    @apply hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color)];
+  }
+
+  .toolbar .icon {
+    @apply text-xl stroke-2;
+  }
+
+  @keyframes nav-onload-animation {
+    0% {
+      transform: translateY(-5rem) translateX(-50%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0) translateX(-50%);
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+  // Theme switcher
+  const themeSwitcher = document.getElementById(
+    "theme-switcher",
+  ) as HTMLButtonElement;
+  const themeIcon = document.getElementById("theme-icon") as HTMLElement;
+
+  let currentTheme = localStorage.getItem("theme") || "light";
+
+  const setTheme = (theme: string) => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    currentTheme = theme;
+    themeIcon.classList.remove("ic-sun", "ic-moon");
+    themeIcon.classList.add(theme === "light" ? "ic-sun" : "ic-moon");
+    document.documentElement.classList.toggle("dark", theme === "dark");
+  };
+
+  themeSwitcher.addEventListener("click", () => {
+    setTheme(currentTheme === "light" ? "dark" : "light");
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    setTheme(currentTheme);
+  });
+</script>

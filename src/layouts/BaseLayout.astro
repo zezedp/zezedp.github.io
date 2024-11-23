@@ -1,0 +1,16 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+---
+
+<html lang="en">
+  <BaseHead />
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style lang="postcss">
+  body {
+    @apply bg-[var(--background-color)];
+  }
+</style>

@@ -1,0 +1,42 @@
+---
+import Base from "./BaseLayout.astro";
+import NavBar from "../components/NavBar.astro";
+import Banner from "../components/Banner.astro";
+
+import { YukinaConfig } from "../../yukina.config";
+
+export interface Props {
+  title?: string;
+  subTitle?: string;
+  headerImg?: string;
+  hashedSlug?: string;
+}
+
+const props = Astro.props;
+---
+
+<Base>
+  <NavBar />
+  {
+    YukinaConfig.EnableBanner && (
+      <Banner
+        title={props.title}
+        subTitle={props.subTitle}
+        headerImg={props.headerImg}
+        hashedSlug={props.hashedSlug}
+      />
+    )
+  }
+  <main class="transition-main">
+    <div class="main-container transition-leaving my-10">
+      <slot />
+    </div>
+  </main>
+</Base>
+
+<style lang="postcss">
+.main-container {
+  @apply w-full md:w-[80%] lg:w-[var(--page-width-lg)] xl:w-[var(--page-width-xl)];
+  @apply md:mx-auto;
+}
+</style>

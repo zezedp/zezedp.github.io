@@ -1,0 +1,37 @@
+---
+export interface Props {
+  year: number;
+  count: number;
+}
+
+const { year, count } = Astro.props;
+---
+
+<div class="flex flex-row items-center mb-2 w-full">
+  <div class="w-[15%] md:w-[10%] flex flex-row justify-end">
+    <p class="text-2xl font-bold text-[var(--text-color)] year">{year}</p>
+  </div>
+  <div class="flex items-center h-full relative w-[15%] md:w-[10%] dash-line">
+    <div
+      class="outline bg-[var(--card-color)] mx-auto z-50 -outline-offset-[2px] bg-none h-3 outline-3 outline-[var(--primary-color)] rounded-full w-3"
+    >
+    </div>
+  </div>
+  <div>
+    <p class="count text-[var(--text-color-lighten)]">总计 {count} 篇文章</p>
+  </div>
+</div>
+<style>
+  .year {
+    font-family: "Noto Sans SC", sans-serif;
+  }
+
+  .count {
+    font-family: "Noto Sans SC", sans-serif;
+  }
+
+  .dash-line::before {
+    @apply content-[''] absolute w-[10%] h-[24px] border-dashed border-l-2 top-1/2 border-l-[var(--text-color)] opacity-25;
+    left: calc(50% - 1px);
+  }
+</style>

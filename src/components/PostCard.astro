@@ -1,0 +1,171 @@
+---
+import { SlugToRealSlug } from "../utils/hash";
+import Icon from "./widget/Icon.astro";
+import { GetCoverURLForUnspecifiedEntry } from "../utils/cover";
+import Category from "../pages/categories/[category].astro";
+
+export interface Props {
+  slug: string;
+  title: string;
+  published: Date;
+  category?: string;
+  tags?: string[];
+  description?: string;
+  image?: string;
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  entry: any;
+}
+
+const props = Astro.props;
+const entryID = SlugToRealSlug(props.slug);
+const contentUrl = `/posts/${entryID}`;
+const { remarkPluginFrontmatter } = await props.entry.render();
+
+function formatDate(date: Date): string {
+  return date
+    .toLocaleDateString("zh-CN", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    })
+    .replace(/\//g, "-");
+}
+---
+
+<div class="bg-[var(--card-color)] md:rounded-3xl h-[212px] flex flex-row">
+  <div class="flex flex-col w-full lg:w-2/3 xl:w-3/5 pl-3 py-8 space-y-3">
+    <div class="flex flex-row items-center">
+      <div class="bg-[var(--primary-color)] w-1 mx-2 h-5 rounded-lg"></div>
+      <a href={contentUrl} class="title">{props.title}</a>
+    </div>
+    <div class="px-5 space-y-3">
+      <div>
+        <ul class="flex flex-row space-x-4">
+          <li class="data space-x-2">
+            <Icon icon="ic-calendar" />
+            <span>{formatDate(props.published)}</span>
+          </li>
+          {
+            props.category && (
+              <li class="data space-x-2">
+                <Icon icon="ic-category" />
+                <a
+                  class="px-1.5 py-0.5 rounded-md text-[var(--text-color-lighten)] hover:bg-[var(--primary-color-lighten)] hover:text-[var(--primary-color)] transition-all"
+                  href={`/categories/${SlugToRealSlug(props.category)}`}
+                >
+                  {props.category}
+                </a>
+              </li>
+            )
+          }
+          <li
+            class="hidden md:block lg:hidden xl:block items-center overflow-clip"
+          >
+            {
+              props.tags && (
+                <div class="data space-x-2">
+                  <Icon icon="ic-tag" />
+                  <ul class="flex flex-row space-x-1 items-center">
+                    {props.tags.slice(0, 3).map((tag, index) => (
+                      <li class="flex flex-row items-center text-[var(--text-color-lighten)] select-none">
+                        {index > 0 && <span class="pr-1">/</span>}
+                        <a
+                          class="px-1.5 py-0.5 rounded-md hover:bg-[var(--primary-color-lighten)] hover:text-[var(--primary-color)] transition-all"
+                          href={`/tags/${SlugToRealSlug(tag)}`}
+                        >
+                          {tag}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                  {/* <span>{props.tags.slice(0, 3).join(" / ")}</span> */}
+                </div>
+              )
+            }
+          </li>
+        </ul>
+      </div>
+      <div>
+        <p class="desc">{props.description}</p>
+      </div>
+      <div class="select-none">
+        <div class="reading-time">
+          <span>{remarkPluginFrontmatter.readingMetadata.wordCount} 字</span>
+          <span>|</span>
+          <span>{remarkPluginFrontmatter.readingMetadata.time} 分钟</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-container">
+    <a href={contentUrl} class="cover-wrapper">
+      <i class="right-icon iconfont ic-right"></i>
+      <img
+        class="cover lozad"
+        src={props.image ?? GetCoverURLForUnspecifiedEntry(entryID)}
+        alt="post cover"
+      />
+    </a>
+  </div>
+</div>
+<style>
+  .title {
+    @apply text-2xl font-semibold align-top text-[var(--text-color)];
+    @apply hover:text-[var(--primary-color)] transition-all;
+    font-family: var(--primary-font);
+  }
+
+  .data {
+    font-family: "Noto Sans SC", sans-serif;
+    @apply flex flex-row items-center;
+  }
+
+  .data > span {
+    @apply text-[var(--text-color-lighten)] inline-block align-middle self-center truncate;
+    font-family: var(--primary-font);
+  }
+
+  .desc {
+    @apply text-[var(--text-color)] min-h-[24px] truncate;
+    font-family: var(--primary-font);
+  }
+
+  .reading-time {
+    @apply text-sm text-[var(--text-color-lighten)] align-middle space-x-3;
+    font-family: var(--primary-font);
+  }
+
+  .cover-container {
+    @apply hidden lg:block w-1/3 xl:w-2/5 h-full relative ml-2;
+    clip-path: polygon(0 0%, 100% 0%, 100% 100%, 10% 100%);
+  }
+
+  .cover-wrapper {
+    @apply w-full h-full rounded-r-3xl overflow-hidden;
+  }
+
+  .cover-wrapper::before {
+    @apply w-0 h-full bg-black opacity-50 rounded-r-3xl absolute left-0;
+    content: "";
+    z-index: 1;
+    transition: all 0.3s;
+  }
+
+  .cover-wrapper::before:hover {
+    @apply w-full h-full;
+  }
+
+  .right-icon {
+    @apply absolute z-[10] text-[4rem] text-white font-bold left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    transition: all 0.3s;
+  }
+
+  .cover-wrapper:hover .right-icon {
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+  }
+
+  .cover {
+    @apply w-full h-full rounded-r-3xl object-cover dark:brightness-90;
+  }
+</style>
