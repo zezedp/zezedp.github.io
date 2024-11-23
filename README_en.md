@@ -4,7 +4,7 @@ A simple and elegant Astro blog template.
 ![Preview](https://s2.loli.net/2024/11/23/uKgnwaWxeZ7RbP5.jpg)
 
 ## Demo Preview Link
-[🖥️ Live Demo (Vercel)](yukina-blog.vercel.app)
+[🖥️ Live Demo (Vercel)](https://yukina-blog.vercel.app)
 
 ## 🛠️ Build Guide
 

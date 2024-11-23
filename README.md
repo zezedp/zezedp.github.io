@@ -7,7 +7,7 @@
 >
 
 ## Demo 预览链接
-[🖥️ Live Demo (Vercel)](yukina-blog.vercel.app)
+[🖥️ Live Demo (Vercel)](https://yukina-blog.vercel.app)
 
 ## 🛠️ 构建指南
 
