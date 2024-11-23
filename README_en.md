@@ -1,6 +1,10 @@
-# Yukina
+# Yukina - Yukina
+A simple and elegant Astro blog template.
 
 ![Preview](https://s2.loli.net/2024/11/23/uKgnwaWxeZ7RbP5.jpg)
+
+## Demo Preview Link
+[🖥️ Live Demo (Vercel)](yukina-blog.vercel.app)
 
 ## 🛠️ Build Guide
 
@@ -13,7 +17,6 @@ Go to the [Node.js official website](https://nodejs.org/) to download and instal
 ```bash
 corepack enable
 ```
-
 ### 3. Install Yarn version 4.5.1 or above
 
 ```bash
@@ -54,8 +57,8 @@ yarn preview
 | ⏳ | Optimize animation effects |
 | ⏳ | Optimize website performance |
 | ⏳ | Adjustable colors |
-| ⏳ | Add features like RSS, SiteMap, etc. |
-| ⏳ | More build options (e.g., SLUG generation method) |
+| ⏳ | Add RSS, SiteMap, and other features |
+| ⏳ | More build options (e.g., SLUG generation methods) |
 | ⏳ | Add Live2D character |
 | ⏳ | Search functionality |
 | ⏳ | i18n |
@@ -67,6 +70,7 @@ yarn preview
 | ⏳ | Develop a CLI and a small CMS for easier management |
 | ⏳ | Slidev components |
 | ⏳ | More Markdown components |
+
 
 ## 🙏 Special Thanks
 
