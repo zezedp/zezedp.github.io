@@ -2,10 +2,7 @@
 import { getCollection } from "astro:content";
 import { SlugToRealSlug } from "../../utils/hash";
 
-import Main from "../../layouts/MainLayout.astro";
-import Markdown from "../../components/Markdown.astro";
-import SideBar from "../../components/SideBar.astro";
-import Copyright from "../../components/Copyright.astro";
+import PostLayout from "../../layouts/PostLayout.astro";
 
 interface Title {
   title: string;
@@ -36,32 +33,12 @@ const { Content, remarkPluginFrontmatter } = await entry.render();
 // }
 ---
 
-<Main
+<!-- <Fragment set:html={tocHTMLString} /> -->
+<PostLayout
   title={entry.data.title}
   subTitle={entry.data.description}
   headerImg={entry.data.image}
-  hashedSlug={SlugToRealSlug(entry.slug)}
+  published={entry.data.published}
 >
-  <!-- <Fragment set:html={tocHTMLString} /> -->
-  <div class="flex flex-row xl:space-x-4 items-start">
-    <div class="side-bar">
-      <SideBar />
-    </div>
-    <div class="article onload-animation">
-      <Markdown>
-        <Content />
-      </Markdown>
-      <Copyright title={entry.data.title} published={entry.data.published} />
-    </div>
-  </div>
-</Main>
-
-<style>
-  .side-bar {
-    @apply hidden min-w-[248px] xl:block;
-  }
-
-  .article {
-    @apply bg-[var(--card-color)] p-10 rounded-2xl shrink flex flex-col min-w-full max-w-full xl:min-w-[80%] xl:max-w-[80%];
-  }
-</style>
+  <Content />
+</PostLayout>

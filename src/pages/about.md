@@ -1,6 +1,5 @@
 ---
-layout: '../layouts/ArticleLayout.astro'
-title: '关于我'
+layout: '../layouts/PostLayout.astro'
 ---
 # 特别感谢
 

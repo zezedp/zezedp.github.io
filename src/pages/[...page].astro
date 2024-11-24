@@ -1,14 +1,12 @@
 ---
 // Component Imports
 import Main from "../layouts/MainLayout.astro";
-import SideBar from "../components/SideBar.astro";
 import PostCard from "../components/PostCard.astro";
 import Pagination from "../components/control/Pagination.astro";
 
 // Utils
 import type { PaginateFunction } from "astro";
 import { GetSortedPosts } from "../utils/content";
-import Footer from "../components/Footer.astro";
 
 export async function getStaticPaths({
   paginate,
@@ -23,58 +21,40 @@ const { page } = Astro.props;
 ---
 
 <Main>
-  <div class="flex flex-row xl:space-x-4">
-    <div class="side-bar">
-      <SideBar />
+  <div class="space-y-8">
+    <div class="posts space-y-4">
+      {
+        page.data.map((entry, index) => (
+          <div
+            class="onload-animation"
+            style={`animation-delay: calc(var(--onload-animation-delay) + ${index + 1} * var(--onload-animation-interval));`}
+          >
+            <PostCard
+              slug={entry.slug}
+              title={entry.data.title}
+              published={entry.data.published}
+              category={entry.data.category}
+              tags={entry.data.tags}
+              description={entry.data.description}
+              image={entry.data.image}
+              entry={entry}
+            />
+          </div>
+        ))
+      }
     </div>
-    <div class="space-y-10">
-      <div class="posts space-y-4">
-        {
-          page.data.map((entry, index) => (
-            <div
-              class="onload-animation"
-              style={`animation-delay: calc(var(--onload-animation-delay) + ${index + 1} * var(--onload-animation-interval));`}
-            >
-              <PostCard
-                slug={entry.slug}
-                title={entry.data.title}
-                published={entry.data.published}
-                category={entry.data.category}
-                tags={entry.data.tags}
-                description={entry.data.description}
-                image={entry.data.image}
-                entry={entry}
-              />
-            </div>
-          ))
-        }
-      </div>
-      <Pagination
-        class="onload-animation"
-        lastPage={page.lastPage}
-        current={page.currentPage}
-        prevURL={page.url.prev}
-        nextURL={page.url.next}
-        style={`animation-delay: calc(var(--onload-animation-delay) + ${page.data.length + 1} * var(--onload-animation-interval));`}
-      />
-      <Footer />
-    </div>
+    <Pagination
+      class="onload-animation"
+      lastPage={page.lastPage}
+      current={page.currentPage}
+      prevURL={page.url.prev}
+      nextURL={page.url.next}
+      style={`animation-delay: calc(var(--onload-animation-delay) + ${page.data.length + 1} * var(--onload-animation-interval));`}
+    />
   </div>
 </Main>
 
 <style>
-  .banner {
-    @apply relative h-[var(--banner-height)] overflow-hidden;
-  }
-
-  .banner > img {
-    @apply absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
-  }
-
-  .side-bar {
-    @apply hidden min-w-[248px] xl:block;
-  }
-
   .posts {
     @apply w-full;
   }

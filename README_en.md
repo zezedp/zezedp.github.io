@@ -51,14 +51,18 @@ yarn preview
 
 ### Short-term
 
+✅ - Completed | 🚧 - In Progress | ⏳ - Planned
+
 | Status | Project |
 | --- | --- |
-| ⏳ | Refactor some code and optimize the overall structure |
-| ⏳ | Optimize animation effects |
-| ⏳ | Optimize website performance |
+| ✅ | Basic functionality implementation |
+| 🚧 | Refactor some code and optimize overall structure |
+| 🚧 | Optimize animation effects |
+| 🚧 | Mobile adaptation |
+| 🚧 | Optimize website performance |
 | ⏳ | Adjustable colors |
-| ⏳ | Add RSS, SiteMap, and other features |
-| ⏳ | More build options (e.g., SLUG generation methods) |
+| ⏳ | Add RSS, SiteMap, etc. |
+| ⏳ | More build options (e.g., SLUG generation method) |
 | ⏳ | Add Live2D character |
 | ⏳ | Search functionality |
 | ⏳ | i18n |

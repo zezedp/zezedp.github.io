@@ -116,10 +116,6 @@
   display: none;
 }
 
-.article pre {
-    max-width: 100%;
-}
-
 .article p {
     font-family: 'Noto Sans SC', sans-serif;
 }
@@ -128,4 +124,3 @@
     border-radius: 0.75rem !important;
     scrollbar-width: thin;
 }
-

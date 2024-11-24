@@ -1,0 +1,35 @@
+---
+import Main from "../layouts/MainLayout.astro";
+import Markdown from "../components/Markdown.astro";
+import Copyright from "../components/Copyright.astro";
+
+interface Props {
+  title?: string;
+  subTitle?: string;
+  headerImg?: string;
+  published?: Date;
+}
+
+const { title, subTitle, headerImg, published } = Astro.props;
+---
+
+<Main title={title} subTitle={subTitle} headerImg={headerImg}>
+  <!-- <Fragment set:html={tocHTMLString} /> -->
+  <div class="article-wrapper">
+    <div class="article">
+      <Markdown>
+        <slot />
+      </Markdown>
+      {published && title && <Copyright title={title} published={published} />}
+    </div>
+  </div>
+</Main>
+
+<style>
+  .article-wrapper {
+    @apply w-full bg-[var(--card-color)] p-10 rounded-2xl;
+  }
+  .article {
+    @apply flex flex-col;
+  }
+</style>

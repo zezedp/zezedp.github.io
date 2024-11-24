@@ -21,35 +21,37 @@ const { title, published } = Astro.props;
 ---
 
 <div
-  class="relative fonts flex flex-col mt-8 py-4 px-4 rounded-lg justify-between bg-gray-100 dark:bg-[var(--background-color)] w-full h-36"
+  class="relative fonts mt-8 rounded-lg py-4 px-4 bg-gray-100 dark:bg-[var(--background-color)] w-full h-36"
 >
-  <div class="flex flex-col space-y-1 items-start">
-    <p class="text-[var(--text-color)] pl-1 font-bold">{title}</p>
-    <a
-      class="text-sm px-1 py-0.5 rounded-md transition-all hover:bg-[var(--primary-color-lighten)]"
-      id="post-url"
-      href=""></a>
-  </div>
-  <div class="flex flex-row space-x-8">
-    <div class="flex flex-col">
-      <span class="text-sm text-[var(--text-color-lighten)]">作者</span>
-      <p class="text-[var(--text-color)]">{YukinaConfig.Username}</p>
-    </div>
-    <div class="flex flex-col">
-      <span class="text-sm text-[var(--text-color-lighten)]">发布日期</span>
-      <p class="text-[var(--text-color)]">{formatDate(published)}</p>
-    </div>
-    <div class="flex flex-col">
-      <span class="text-sm text-[var(--text-color-lighten)]">许可协议</span>
+  <div class="absolute top-4 left-4 flex flex-col justify-between h-28 z-10">
+    <div class="flex flex-col space-y-1 items-start">
+      <p class="text-[var(--text-color)] pl-1 font-bold">{title}</p>
       <a
-        class="text-[var(--text-color)]"
-        href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
-        target="_blank">CC BY-NC-SA 4.0</a
-      >
+        class="text-sm px-1 py-0.5 rounded-md transition-all hover:bg-[var(--primary-color-lighten)]"
+        id="post-url"
+        href=""></a>
+    </div>
+    <div class="flex flex-row space-x-8">
+      <div class="flex flex-col">
+        <span class="text-sm text-[var(--text-color-lighten)]">作者</span>
+        <p class="text-[var(--text-color)]">{YukinaConfig.Username}</p>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm text-[var(--text-color-lighten)]">发布日期</span>
+        <p class="text-[var(--text-color)]">{formatDate(published)}</p>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm text-[var(--text-color-lighten)]">许可协议</span>
+        <a
+          class="text-[var(--text-color)]"
+          href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          target="_blank">CC BY-NC-SA 4.0</a
+        >
+      </div>
     </div>
   </div>
   <div
-    class="absolute flex right-8 top-1/2 -translate-y-1/2 overflow-hidden h-36"
+    class="absolute z-0 flex right-8 top-1/2 -translate-y-1/2 overflow-hidden h-36"
   >
     <i
       class="-translate-y-[66.6%] iconfont ic-creative-commons text-[230px] text-gray-300 dark:text-[var(--card-color)]"
@@ -67,23 +69,3 @@ const { title, published } = Astro.props;
     /* height: 9rem; */
   }
 </style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", setupUrlAnchor);
-
-  if (window.swup?.hooks) {
-    setupUrlAnchor();
-  } else {
-    document.addEventListener("swup:enable", () => {
-      window.swup.hooks.on("page:view", setupUrlAnchor);
-    });
-  }
-
-  function setupUrlAnchor() {
-    const url = window.location.href;
-    const urlElement = document.getElementById("post-url") as HTMLAnchorElement;
-    if (!urlElement) return;
-    urlElement.href = url;
-    urlElement.innerText = url;
-  }
-</script>
