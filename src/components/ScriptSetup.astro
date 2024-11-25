@@ -1,0 +1,80 @@
+---
+import { YukinaConfig } from "../../yukina.config";
+
+let hitokotoQueryUrl = `https://${YukinaConfig.HitokotoSettings.url}?max_length=20`;
+YukinaConfig.HitokotoSettings.content_types.forEach((type) => {
+  hitokotoQueryUrl += `&c=${type}`;
+});
+---
+
+<hitokoto data-url={hitokotoQueryUrl}></hitokoto>
+
+<script>
+  import lozad from "lozad";
+
+  // 设置文章链接
+  const setupUrlAnchor = () => {
+    const url = window.location.href;
+    const urlElement = document.getElementById(
+      "post-url",
+    ) as HTMLAnchorElement | null;
+    if (urlElement) {
+      urlElement.href = url;
+      urlElement.innerText = url;
+    }
+  };
+
+  // 设置图片懒加载
+  const setupLozad = () => {
+    const observer = lozad(".lozad", {
+      loaded: (el) => {
+        el.classList.add("loaded");
+      },
+    });
+
+    observer.observe();
+  };
+
+  // 设置一言
+  let hitokotoText: string = "";
+  const setupHitokoto = async () => {
+    // 获取一言 API 地址
+    let hitokotoQueryUrl: string = "https://international.v1.hitokoto.cn";
+    const hitokotoUrlElement = document.querySelector(
+      "hitokoto",
+    ) as HTMLElement | null;
+    if (!hitokotoUrlElement) return;
+    hitokotoQueryUrl =
+      hitokotoUrlElement.getAttribute("data-url") || hitokotoQueryUrl;
+
+    // 获取一言内容
+    if (hitokotoText === "") {
+      const response = await fetch(hitokotoQueryUrl);
+      const { hitokoto, from } = await response.json();
+      hitokotoText = `${hitokoto} —— 「${from}」`;
+    }
+    const hitokoto = document.querySelector(
+      "#hitokoto_text",
+    ) as HTMLHeadingElement | null;
+    if (!hitokoto) return;
+    hitokoto.innerText = hitokotoText;
+  };
+
+  // 初始化
+  const setup = () => {
+    setupUrlAnchor();
+    setupLozad();
+    setupHitokoto();
+  };
+
+  // 监听事件
+  document.addEventListener("DOMContentLoaded", setup);
+  // 监听 swup 事件
+  if (window.swup?.hooks) {
+    setup();
+  } else {
+    document.addEventListener("swup:enable", () => {
+      window.swup.hooks.on("content:replace", setup);
+    });
+  }
+</script>

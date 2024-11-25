@@ -2,6 +2,9 @@
 // config
 import { YukinaConfig } from "../../yukina.config";
 
+// Scripts
+import ScriptSetup from "./ScriptSetup.astro";
+
 // styles
 import "../styles/theme.css";
 import "../styles/animations.css";
@@ -46,6 +49,7 @@ import "../styles/transitions.css";
 />
 
 <!-- scripts -->
+<ScriptSetup />
 <script src="../scripts/global.ts"></script>
 
 <title>{YukinaConfig.Title}</title>

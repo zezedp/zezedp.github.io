@@ -1,6 +1,7 @@
 export const YukinaConfig = {
   Title: 'Yukina',
-  SubTitle: 'Yukina Template',
+  SubTitle: 'Yukina Template', // doesn't work when UseHitokotoSubtitle is true
+  UseHitokotoSubtitle: true,
   Description: 'Demo Site',
   IconfontURL: '//at.alicdn.com/t/c/font_4507154_ls2dlyz0b1a.css',
   Avatar: 'https://s2.loli.net/2024/08/20/MwPtbr72mRxjsev.webp',
@@ -26,4 +27,11 @@ export const YukinaConfig = {
 
   // NOT IMPLEMENTED
   SlugGenerateMode: 'HASH', // 'RAW' | 'HASH'
+
+  HitokotoSettings: {
+    // see: https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
+    url: 'international.v1.hitokoto.cn',
+    // see: https://developer.hitokoto.cn/sentence/#%E5%8F%A5%E5%AD%90%E7%B1%BB%E5%9E%8B-%E5%8F%82%E6%95%B0
+    content_types: ['a', 'b'],
+  }
 }
