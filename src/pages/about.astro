@@ -3,7 +3,7 @@ import { getEntry } from "astro:content";
 import { changeLanguage } from "i18next";
 import Main from "../layouts/MainLayout.astro";
 import Markdown from "../components/Markdown.astro";
-import Copyright from "../components/CopyRight.astro";
+import CopyRight from "../components/misc/CopyRight.astro";
 
 changeLanguage("zh");
 
@@ -25,7 +25,7 @@ const { title, subTitle, headerImg, published } = Astro.props;
       <Markdown>
         <Content />
       </Markdown>
-      {published && title && <Copyright title={title} published={published} />}
+      {published && title && <CopyRight title={title} published={published} />}
     </div>
   </div>
 </Main>

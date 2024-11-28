@@ -7,16 +7,16 @@ import PostLayout from "../../layouts/PostLayout.astro";
 changeLanguage("zh");
 
 interface Title {
-  title: string;
-  slug: string;
-  children: Title[];
+    title: string;
+    slug: string;
+    children: Title[];
 }
 export async function getStaticPaths() {
-  const postEntries = await getCollection("posts");
-  return postEntries.map((entry) => ({
-    params: { slug: SlugToRealSlug(entry.slug) },
-    props: { entry },
-  }));
+    const postEntries = await getCollection("posts");
+    return postEntries.map((entry) => ({
+        params: { slug: SlugToRealSlug(entry.slug) },
+        props: { entry },
+    }));
 }
 const { entry } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await entry.render();

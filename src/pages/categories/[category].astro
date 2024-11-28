@@ -22,7 +22,8 @@ async function FormatArchiveMap() {
         const year = post.date.getFullYear();
         if (archiveMap.has(year)) {
             archiveMap.get(year)!.push(post);
-        } else {
+        }
+        else {
             archiveMap.set(year, [post]);
         }
     });
