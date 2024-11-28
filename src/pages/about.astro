@@ -1,15 +1,20 @@
 ---
+import { getEntry } from "astro:content";
+import { changeLanguage } from "i18next";
 import Main from "../layouts/MainLayout.astro";
 import Markdown from "../components/Markdown.astro";
 import Copyright from "../components/CopyRight.astro";
 
-interface Props {
-  title?: string;
-  subTitle?: string;
-  headerImg?: string;
-  published?: Date;
-}
+changeLanguage("zh");
 
+const aboutPost = await getEntry("spec", "about");
+const { Content } = await aboutPost.render();
+interface Props {
+    title?: string;
+    subTitle?: string;
+    headerImg?: string;
+    published?: Date;
+}
 const { title, subTitle, headerImg, published } = Astro.props;
 ---
 
@@ -18,7 +23,7 @@ const { title, subTitle, headerImg, published } = Astro.props;
   <div class="article-wrapper">
     <div class="article">
       <Markdown>
-        <slot />
+        <Content />
       </Markdown>
       {published && title && <Copyright title={title} published={published} />}
     </div>

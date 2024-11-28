@@ -1,4 +1,6 @@
 ---
+import { t } from "i18next";
+
 import { YukinaConfig } from "../../yukina.config";
 
 export interface Props {
@@ -33,15 +35,21 @@ const { title, published } = Astro.props;
     </div>
     <div class="flex flex-row space-x-8">
       <div class="flex flex-col">
-        <span class="text-sm text-[var(--text-color-lighten)]">作者</span>
+        <span class="text-sm text-[var(--text-color-lighten)]"
+          >{t("components.copy_right.author")}</span
+        >
         <p class="text-[var(--text-color)]">{YukinaConfig.Username}</p>
       </div>
       <div class="flex flex-col">
-        <span class="text-sm text-[var(--text-color-lighten)]">发布日期</span>
+        <span class="text-sm text-[var(--text-color-lighten)]"
+          >{t("components.copy_right.publish_date")}</span
+        >
         <p class="text-[var(--text-color)]">{formatDate(published)}</p>
       </div>
       <div class="flex flex-col">
-        <span class="text-sm text-[var(--text-color-lighten)]">许可协议</span>
+        <span class="text-sm text-[var(--text-color-lighten)]"
+          >{t("components.copy_right.license")}</span
+        >
         <a
           class="text-[var(--text-color)]"
           href="https://creativecommons.org/licenses/by-nc-sa/4.0/"

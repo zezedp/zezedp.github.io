@@ -1,22 +1,21 @@
 ---
+import { changeLanguage } from "i18next";
 // Component Imports
 import Main from "../layouts/MainLayout.astro";
 import PostCard from "../components/PostCard.astro";
 import Pagination from "../components/control/Pagination.astro";
-
 // Utils
 import type { PaginateFunction } from "astro";
 import { GetSortedPosts } from "../utils/content";
 
-export async function getStaticPaths({
-  paginate,
-}: {
-  paginate: PaginateFunction;
-}) {
-  const postCollections = await GetSortedPosts();
-  return paginate(postCollections, { pageSize: 6 });
-}
+changeLanguage("zh");
 
+export async function getStaticPaths({ paginate, }: {
+    paginate: PaginateFunction;
+}) {
+    const postCollections = await GetSortedPosts();
+    return paginate(postCollections, { pageSize: 6 });
+}
 const { page } = Astro.props;
 ---
 

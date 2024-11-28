@@ -1,6 +1,3 @@
----
-layout: '../layouts/PostLayout.astro'
----
 # 特别感谢
 
 - [Hexo Shoka 主题](https://github.com/amehime/hexo-theme-shoka) 提供设计思路

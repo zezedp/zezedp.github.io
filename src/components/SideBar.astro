@@ -1,4 +1,8 @@
 ---
+import { t } from "i18next";
+// @ts-ignore
+import { localizePath } from "astro-i18next";
+
 import { YukinaConfig } from "../../yukina.config";
 import { GetCategories, GetTags } from "../utils/content";
 import SocialIcon from "./widget/SocialIcon.astro";
@@ -13,7 +17,7 @@ const categories = await GetCategories();
       class="p-3 bg-[var(--card-color)] rounded-3xl onload-animation"
       style=`animation-delay: var(--onload-animation-delay);`
     >
-      <a href="/about" class="avatar-wrapper">
+      <a href={localizePath("/about")} class="avatar-wrapper">
         <img
           src={YukinaConfig.Avatar}
           alt="avatar"
@@ -46,13 +50,15 @@ const categories = await GetCategories();
       style=`animation-delay: calc(var(--onload-animation-delay) + 1 * var(--onload-animation-interval));`
     >
       <div class="title m-[0.375rem]">
-        <p class="text-xl font-bold pl-4 text-[var(--text-color)]">分类</p>
+        <p class="text-xl font-bold pl-4 text-[var(--text-color)]">
+          {t("components.side_bar.categories")}
+        </p>
       </div>
       <div class="flex flex-col">
         {
           categories.keys().map((category) => (
             <a
-              href={`/categories/${category}`}
+              href={localizePath(`/categories/${category}`)}
               class="category flex flex-row items-center justify-between hover:bg-[var(--primary-color-lighten)] py-2 px-3 rounded-lg transition-all"
             >
               <p class="text-[var(--text-color)] transition-all">
@@ -73,13 +79,15 @@ const categories = await GetCategories();
       style=`animation-delay: calc(var(--onload-animation-delay) + 2 * var(--onload-animation-interval));`
     >
       <div class="title m-[0.375rem]">
-        <p class="text-xl font-bold pl-4 text-[var(--text-color)]">标签</p>
+        <p class="text-xl font-bold pl-4 text-[var(--text-color)]">
+          {t("components.side_bar.tags")}
+        </p>
       </div>
       <div class="flex flex-row flex-wrap max-w-[224px]">
         {
           tags.keys().map((tag) => (
             <a
-              href={`/tags/${tag}`}
+              href={localizePath(`/tags/${tag}`)}
               class="tag bg-[var(--primary-color-lighten)] py-1 px-2 rounded-md m-1 hover:brightness-95 transition-all"
             >
               <p class="text-[var(--primary-color)] text-sm">

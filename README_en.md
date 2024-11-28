@@ -52,7 +52,7 @@ yarn preview
 
 ### Short-term
 
-✅ - Completed | 🚧 - In Progress | ⏳ - Planned
+✅ - Completed | 🧪 - Testing | 🚧 - In Progress | ⏳ - Planned
 
 | Status | Project |
 | --- | --- |
@@ -66,7 +66,7 @@ yarn preview
 | ⏳ | More build options (e.g., SLUG generation method) |
 | ⏳ | Add Live2D character |
 | ⏳ | Search functionality |
-| ⏳ | i18n |
+| 🧪 | i18n |
 
 ### Long-term
 

@@ -60,11 +60,22 @@ YukinaConfig.HitokotoSettings.content_types.forEach((type) => {
     hitokoto.innerText = hitokotoText;
   };
 
+  const setupLanguageSelector = () => {
+    const languageSelections = document.querySelectorAll(".language-selection");
+    languageSelections.forEach((selection) => {
+      selection.addEventListener("click", () => {
+        const target = selection.getAttribute("data-target");
+        if (target) window.location.href = target;
+      });
+    });
+  };
+
   // 初始化
   const setup = () => {
     setupUrlAnchor();
     setupLozad();
     setupHitokoto();
+    setupLanguageSelector();
   };
 
   // 监听事件

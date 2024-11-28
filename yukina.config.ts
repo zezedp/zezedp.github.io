@@ -3,7 +3,7 @@ export const YukinaConfig = {
   SubTitle: 'Yukina Template', // doesn't work when UseHitokotoSubtitle is true
   UseHitokotoSubtitle: true,
   Description: 'Demo Site',
-  IconfontURL: '//at.alicdn.com/t/c/font_4507154_ls2dlyz0b1a.css',
+  IconfontURL: '//at.alicdn.com/t/c/font_4507154_ptdxadr7249.css',
   Avatar: 'https://s2.loli.net/2024/08/20/MwPtbr72mRxjsev.webp',
 
   Username: 'WhitePaper 白芷',

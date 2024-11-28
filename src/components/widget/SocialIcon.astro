@@ -5,10 +5,16 @@ export interface Props {
 }
 const { icon, link } = Astro.props;
 ---
+
 <a href={link} target="_blank">
-  <div class="w-10 h-10 bg-[var(--primary-color-lighten)] rounded-lg flex flex-col justify-center dark:bg-[var(--card-color-lighten)] hover:brightness-95 dark:hover:brightness-125 transition-all">
+  <div
+    class="w-10 h-10 bg-[var(--primary-color-lighten)] rounded-lg flex flex-col justify-center dark:bg-[var(--card-color-lighten)] hover:brightness-95 dark:hover:brightness-125 transition-all"
+  >
     <div class="flex flex-row justify-center">
-      <i class:list={[icon]} class="text-2xl text-[var(--primary-color)] iconfont dark:text-[var(--text-color)] dark:brightness-[60%]"></i>
+      <i
+        class:list={[icon]}
+        class="text-2xl text-[var(--primary-color)] iconfont dark:text-[var(--text-color)] dark:brightness-[60%]"
+      ></i>
     </div>
   </div>
 </a>

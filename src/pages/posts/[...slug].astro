@@ -1,15 +1,16 @@
 ---
+import { changeLanguage } from "i18next";
 import { getCollection } from "astro:content";
 import { SlugToRealSlug } from "../../utils/hash";
-
 import PostLayout from "../../layouts/PostLayout.astro";
+
+changeLanguage("zh");
 
 interface Title {
   title: string;
   slug: string;
   children: Title[];
 }
-
 export async function getStaticPaths() {
   const postEntries = await getCollection("posts");
   return postEntries.map((entry) => ({
@@ -17,20 +18,8 @@ export async function getStaticPaths() {
     props: { entry },
   }));
 }
-
 const { entry } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await entry.render();
-// let tocHTMLString = "";
-// function Traverse(node: Title, level: number): string {
-//   return `
-//     <div>
-//       <a class="h${level}" href="#${node.slug}">${node.title}</a>
-//       ${node.children.length > 0 ? node.children.map((child) => Traverse(child, level + 1)).join("") : ""}
-//     </div>`;
-// }
-// for (const children of remarkPluginFrontmatter.toc) {
-//   tocHTMLString += Traverse(children, 1);
-// }
 ---
 
 <!-- <Fragment set:html={tocHTMLString} /> -->

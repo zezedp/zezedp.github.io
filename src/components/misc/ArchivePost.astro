@@ -1,4 +1,7 @@
 ---
+// @ts-ignore
+import { localizePath } from "astro-i18next";
+
 export interface Props {
   slug: string;
   title: string;
@@ -22,7 +25,7 @@ const formattedDate = formatDate(pubilished);
 
 <div class="item">
   <a
-    href={slug}
+    href={localizePath(slug)}
     class="flex flex-row items-center py-2 w-full hover:bg-[var(--primary-color-lighten)] rounded-md select-none transition-colors"
   >
     <div class="w-[15%] md:w-[10%] flex flex-row justify-end">

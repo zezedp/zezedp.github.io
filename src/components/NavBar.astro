@@ -1,4 +1,9 @@
 ---
+import { t } from "i18next";
+// @ts-ignore
+import { localizePath } from "astro-i18next";
+import LanguageSelector from "./control/LanguageSelector.astro";
+
 import { YukinaConfig } from "../../yukina.config";
 ---
 
@@ -8,31 +13,31 @@ import { YukinaConfig } from "../../yukina.config";
       <button type="button">
         <i class="iconfont ic-list icon"></i>
       </button>
-      <a class="title" href="/">
+      <a class="title" href={localizePath("/")}>
         {YukinaConfig.Title}
       </a>
     </div>
-    <a class="brand-lg" href="/">
+    <a class="brand-lg" href={localizePath("/")}>
       <p class="title">
         <i class="iconfont ic-home icon min-w-[24px]"></i>
         {YukinaConfig.Title}
       </p>
     </a>
     <div class="menu">
-      <a href="/">
-        <p>首页</p>
+      <a href={localizePath("/")}>
+        <p>{t("components.nav_bar.home")}</p>
       </a>
-      <a href="/archive">
-        <p>归档</p>
+      <a href={localizePath("/archive")}>
+        <p>{t("components.nav_bar.archive")}</p>
       </a>
       <!-- <a href="/bangumi">
         <p>番剧</p>
       </a> -->
-      <a href="/about">
-        <p>关于</p>
+      <a href={localizePath("/about")}>
+        <p>{t("components.nav_bar.about")}</p>
       </a>
       <a href="https://github.com/WhitePaper233/yukina">
-        <p>Github</p>
+        <p>{t("components.nav_bar.github")}</p>
       </a>
     </div>
     <div class="toolbar">
@@ -41,6 +46,7 @@ import { YukinaConfig } from "../../yukina.config";
           <i class="iconfont ic-search icon"></i>
         </button>
       </div>
+      <LanguageSelector />
       <div class="theme">
         <button type="button" id="theme-switcher">
           <i class="iconfont icon" id="theme-icon"></i>
@@ -121,7 +127,7 @@ import { YukinaConfig } from "../../yukina.config";
   }
 
   .toolbar {
-    @apply flex flex-row items-center space-x-1 w-[92px];
+    @apply flex flex-row items-center justify-end space-x-1;
   }
 
   .toolbar button {

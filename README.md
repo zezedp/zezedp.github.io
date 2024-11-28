@@ -3,7 +3,7 @@
 
 ![Preview](https://s2.loli.net/2024/11/23/uKgnwaWxeZ7RbP5.jpg)
 
-> If you are looking for an English version, please click [here](https://github.com/WhitePaper233/yukina/blob/main/README_en.md). However, the template's i18n is currently a work in progress and does not support English yet.
+> If you are looking for an English version, please click [here](https://github.com/WhitePaper233/yukina/blob/main/README_en.md).
 >
 
 ## Demo 预览链接
@@ -55,7 +55,7 @@ yarn preview
 
 ### 近期
 
-✅ - 已完成 | 🚧 - 进行中 | ⏳ - 计划中
+✅ - 已完成 | 🧪 - 测试中 | 🚧 - 进行中 | ⏳ - 计划中
 
 | 状态 | 项目 |
 | --- | --- |
@@ -69,7 +69,7 @@ yarn preview
 | ⏳ | 更多构建选项（如 SLUG 生成方法） |
 | ⏳ | 添加 Live2D 小人 |
 | ⏳ | 搜索功能 |
-| ⏳ | i18n |
+| 🧪 | i18n |
 
 ### 远期
 

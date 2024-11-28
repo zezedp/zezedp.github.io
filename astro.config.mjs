@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 import swup from '@swup/astro'
+import astroI18next from "astro-i18next";
 
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
@@ -12,6 +13,7 @@ import { remarkTOC } from './src/plugins/remark-toc.mjs'
 // https://astro.build/config
 export default defineConfig({
   integrations: [
+    astroI18next(),
     tailwind(),
     swup({
       theme: false,
