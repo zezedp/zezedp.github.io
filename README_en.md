@@ -56,7 +56,7 @@ yarn preview
 
 | Status | Project |
 | --- | --- |
-| ✅ | Basic functionality implementation |
+| 🧪 | Basic functionality implementation |
 | 🚧 | Refactor some code and optimize overall structure |
 | 🚧 | Optimize animation effects |
 | 🚧 | Mobile adaptation |
@@ -65,7 +65,7 @@ yarn preview
 | ⏳ | Add RSS, SiteMap, etc. |
 | ⏳ | More build options (e.g., SLUG generation method) |
 | ⏳ | Add Live2D character |
-| ⏳ | Search functionality |
+| 🧪 | Search functionality |
 | 🧪 | i18n |
 
 ### Long-term
