@@ -1942,10 +1942,59 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pagefind/darwin-arm64@npm:1.2.0":
+  version: 1.2.0
+  resolution: "@pagefind/darwin-arm64@npm:1.2.0"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@pagefind/darwin-x64@npm:1.2.0":
+  version: 1.2.0
+  resolution: "@pagefind/darwin-x64@npm:1.2.0"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@pagefind/default-ui@npm:^1.0.3":
+  version: 1.2.0
+  resolution: "@pagefind/default-ui@npm:1.2.0"
+  checksum: 10c0/2634742298fff43c42b269d133786f88bfadb9217721a0b071d4a8cb2688c9aba52b09ee5abdbf0affcb0c331d7273415b0eaa0d746d473a3ce623396fec4fa7
+  languageName: node
+  linkType: hard
+
+"@pagefind/linux-arm64@npm:1.2.0":
+  version: 1.2.0
+  resolution: "@pagefind/linux-arm64@npm:1.2.0"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@pagefind/linux-x64@npm:1.2.0":
+  version: 1.2.0
+  resolution: "@pagefind/linux-x64@npm:1.2.0"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@pagefind/windows-x64@npm:1.2.0":
+  version: 1.2.0
+  resolution: "@pagefind/windows-x64@npm:1.2.0"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
   checksum: 10c0/5bd7576bb1b38a47a7fc7b51ac9f38748e772beebc56200450c4a817d712232b8f1d3ef70532c80840243c657d491cf6a6be1e3a214cff907645819fdc34aadd
+  languageName: node
+  linkType: hard
+
+"@polka/url@npm:^1.0.0-next.24":
+  version: 1.0.0-next.28
+  resolution: "@polka/url@npm:1.0.0-next.28"
+  checksum: 10c0/acc5ea62597e4da2fb42dbee02749d07f102ae7d6d2c966bf7e423c79cd65d1621da305af567e6e7c232f3b565e242d1ec932cbb3dcc0db1508d02e9a2cafa2e
   languageName: node
   linkType: hard
 
@@ -3007,6 +3056,19 @@ __metadata:
   bin:
     astro-i18next: dist/cli/index.js
   checksum: 10c0/8d61f3a8d82599379a7588cde1db7c3695a6eb5bd903f95934151a5c6d27f9a414ccb8aee619110ba1c2d365b555d49dac3e44b8ae4f5b968f28af44cef6e376
+  languageName: node
+  linkType: hard
+
+"astro-pagefind@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "astro-pagefind@npm:1.6.0"
+  dependencies:
+    "@pagefind/default-ui": "npm:^1.0.3"
+    pagefind: "npm:^1.0.3"
+    sirv: "npm:^2.0.3"
+  peerDependencies:
+    astro: ^2.0.4 || ^3.0.0 || ^4.0.0
+  checksum: 10c0/4ee30b5fdb229351a496a9bc21995b459dfd82091efd9f6e0281695f795fa47689253fefde46695af785d2dd278ba90b3e2b261a3a2ede49f7e27ee7d5070650
   languageName: node
   linkType: hard
 
@@ -7440,6 +7502,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pagefind@npm:^1.0.3":
+  version: 1.2.0
+  resolution: "pagefind@npm:1.2.0"
+  dependencies:
+    "@pagefind/darwin-arm64": "npm:1.2.0"
+    "@pagefind/darwin-x64": "npm:1.2.0"
+    "@pagefind/linux-arm64": "npm:1.2.0"
+    "@pagefind/linux-x64": "npm:1.2.0"
+    "@pagefind/windows-x64": "npm:1.2.0"
+  dependenciesMeta:
+    "@pagefind/darwin-arm64":
+      optional: true
+    "@pagefind/darwin-x64":
+      optional: true
+    "@pagefind/linux-arm64":
+      optional: true
+    "@pagefind/linux-x64":
+      optional: true
+    "@pagefind/windows-x64":
+      optional: true
+  bin:
+    pagefind: lib/runner/bin.cjs
+  checksum: 10c0/291a0aa8b52bd8d4614073aa1f8b803154e57898558bbb1b816aba10acee56ebc07817f8c6407f55a83ab7977cf331c630dc4d8badd1e15f46d194523f9b86cd
+  languageName: node
+  linkType: hard
+
 "parent-module@npm:^1.0.0":
   version: 1.0.1
   resolution: "parent-module@npm:1.0.1"
@@ -9122,6 +9210,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sirv@npm:^2.0.3":
+  version: 2.0.4
+  resolution: "sirv@npm:2.0.4"
+  dependencies:
+    "@polka/url": "npm:^1.0.0-next.24"
+    mrmime: "npm:^2.0.0"
+    totalist: "npm:^3.0.0"
+  checksum: 10c0/68f8ee857f6a9415e9c07a1f31c7c561df8d5f1b1ba79bee3de583fa37da8718def5309f6b1c6e2c3ef77de45d74f5e49efc7959214443aa92d42e9c99180a4e
+  languageName: node
+  linkType: hard
+
 "sisteransi@npm:^1.0.5":
   version: 1.0.5
   resolution: "sisteransi@npm:1.0.5"
@@ -9593,6 +9692,13 @@ __metadata:
   dependencies:
     is-number: "npm:^7.0.0"
   checksum: 10c0/487988b0a19c654ff3e1961b87f471702e708fa8a8dd02a298ef16da7206692e8552a0250e8b3e8759270f62e9d8314616f6da274734d3b558b1fc7b7724e892
+  languageName: node
+  linkType: hard
+
+"totalist@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "totalist@npm:3.0.1"
+  checksum: 10c0/4bb1fadb69c3edbef91c73ebef9d25b33bbf69afe1e37ce544d5f7d13854cda15e47132f3e0dc4cafe300ddb8578c77c50a65004d8b6e97e77934a69aa924863
   languageName: node
   linkType: hard
 
@@ -10593,6 +10699,7 @@ __metadata:
     animejs: "npm:^3.2.2"
     astro: "npm:^4.16.7"
     astro-i18next: "npm:^1.0.0-beta.21"
+    astro-pagefind: "npm:^1.6.0"
     autoprefixer: "npm:^10.4.20"
     crypto-js: "npm:^4.2.0"
     github-slugger: "npm:^2.0.0"

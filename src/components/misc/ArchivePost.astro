@@ -9,7 +9,8 @@ export interface Props {
   tags: string[];
 }
 
-const { slug, title, pubilished, tags } = Astro.props;
+// const { slug, title, pubilished, tags } = Astro.props;
+const { slug, title, pubilished } = Astro.props;
 
 function formatDate(date: Date): string {
   return date

@@ -9,26 +9,25 @@ interface languageMapping {
 }
 
 export interface Props extends astroHTML.JSX.SelectHTMLAttributes {
-  showFlag?: boolean;
   languageMapping?: languageMapping;
 }
 
 const supportedLanguages = i18next.languages;
-const currentLanguage = i18next.language;
+// const currentLanguage = i18next.language;
 
 const { pathname } = Astro.url;
 
-const { showFlag = false, languageMapping, ...attributes } = Astro.props;
+const { languageMapping } = Astro.props;
 ---
 
-<div class="language-selector">
+<div class="language-selector ml-1">
   <button type="button" class="btn">
     <i class="iconfont ic-language icon"></i>
   </button>
   <div class="dropdown-wrapper">
     <ul class="dropdown dynamic-ele">
       {
-        supportedLanguages.map((supportedLanguage: string) => {
+        supportedLanguages.map((supportedLanguage: string, index: number) => {
           let value = localizePath(pathname, supportedLanguage);
 
           let nativeName = "";
@@ -42,9 +41,19 @@ const { showFlag = false, languageMapping, ...attributes } = Astro.props;
           }
 
           return (
-            <li class="selection language-selection" data-target={value}>
-              {nativeName}
-            </li>
+            (index && (
+              <li class="selection language-selection" data-target={value}>
+                <span class="align-top leading-[0] -translate-y-[1px]">
+                  {nativeName}
+                </span>
+              </li>
+            )) || (
+              <li class="selection-selected" data-target={value}>
+                <span class="align-top leading-[0] -translate-y-[1px]">
+                  {nativeName}
+                </span>
+              </li>
+            )
           );
         })
       }
@@ -72,24 +81,44 @@ const { showFlag = false, languageMapping, ...attributes } = Astro.props;
   }
 
   .dropdown-wrapper {
-    @apply hidden absolute top-0 -left-1/2 w-32 h-48;
+    @apply hidden absolute top-0 w-11 h-12 translate-y-11;
   }
 
   .dropdown {
-    @apply absolute bottom-0 flex flex-col p-1 rounded-lg bg-[var(--card-color-transparent)] w-32;
+    @apply absolute -left-1/2 -bottom-24 flex flex-col p-1 rounded-lg space-y-1 bg-[var(--card-color-transparent)] w-32;
     opacity: 0;
     animation: 300ms fade-in-down;
     animation-fill-mode: forwards;
   }
 
   .selection {
-    @apply flex flex-row content-center items-center align-middle rounded-md p-2 pr-4 text-[(var(--text-color))] hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color)] transition-all;
+    @apply select-none flex flex-row items-center rounded-md pl-2 pr-4 text-[var(--text-color)] hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color)] transition-all;
+    font-family: var(--primary-font);
+  }
+
+  .selection-selected {
+    @apply select-none flex flex-row items-center rounded-md p-2 pr-4 bg-[var(--primary-color-hover)] text-[var(--primary-color)] transition-all;
     font-family: var(--primary-font);
   }
 
   .selection::before {
-    @apply w-1 mr-1 transition-all;
-    @apply hover:mr-3;
+    @apply w-1 h-1 mr-2 rounded-md bg-[var(--primary-color)] transition-all;
+    @apply hover:mr-3 hover:h-4;
+    content: "";
+  }
+
+  .selection::after {
+    @apply h-10;
+    content: "";
+  }
+
+  .selection-selected::before {
+    @apply w-1 h-4 mr-3 rounded-md bg-[var(--primary-color)];
+    content: "";
+  }
+
+  .selection-selected::after {
+    @apply h-6;
     content: "";
   }
 
@@ -100,7 +129,7 @@ const { showFlag = false, languageMapping, ...attributes } = Astro.props;
     }
 
     100% {
-      transform: translateY(0);
+      transform: translateY(0.5rem);
       opacity: 1;
     }
   }

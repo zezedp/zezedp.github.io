@@ -6,11 +6,11 @@ import PostLayout from "../../layouts/PostLayout.astro";
 
 changeLanguage("zh");
 
-interface Title {
-    title: string;
-    slug: string;
-    children: Title[];
-}
+// interface Title {
+//     title: string;
+//     slug: string;
+//     children: Title[];
+// }
 export async function getStaticPaths() {
     const postEntries = await getCollection("posts");
     return postEntries.map((entry) => ({
@@ -19,7 +19,8 @@ export async function getStaticPaths() {
     }));
 }
 const { entry } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await entry.render();
+// const { Content, remarkPluginFrontmatter } = await entry.render();
+const { Content } = await entry.render();
 ---
 
 <!-- <Fragment set:html={tocHTMLString} /> -->
