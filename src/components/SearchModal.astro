@@ -1,0 +1,94 @@
+---
+import Search from "astro-pagefind/components/Search";
+---
+
+<div
+  class="hidden fixed z-50 w-full h-screen left-0 top-0 bg-black/10"
+  id="search-modal"
+>
+  <div class="fixed top-1/4 left-1/2 -translate-x-1/2 w-[42rem] transition-all">
+    <div
+      class="bg-[var(--card-color-transparent)] backdrop-blur-xl p-2 rounded-xl onload-animation"
+    >
+      <Search
+        id="search"
+        className="pagefind-ui transition-all"
+        uiOptions={{ showImages: false }}
+      />
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  .pagefind-ui {
+    --pagefind-ui-background: var(--card-color);
+    --pagefind-ui-scale: 0.75;
+    --pagefind-ui-primary: var(--text-color);
+    --pagefind-ui-text: var(--text-color);
+    --pagefind-ui-border: transparent;
+    --pagefind-ui-border-width: 0;
+    --pagefind-ui-border-radius: 0.25rem;
+    --pagefind-ui-font: var(--primary-font);
+  }
+
+  .pagefind-ui__search-input {
+    @apply !outline-none;
+  }
+
+  .pagefind-ui__search-clear {
+    @apply !text-sm text-[var(--text-color)];
+  }
+
+  .pagefind-ui__message {
+    @apply !pl-4 !pb-3 !pt-0;
+  }
+
+  .pagefind-ui__drawer {
+    @apply max-h-[42vh] overflow-y-auto;
+  }
+
+  .pagefind-ui__result {
+    @apply !pl-6 !pr-4 !pt-3 !pb-3.5 bg-[var(--card-color)] mb-2 rounded-xl select-none transition-all;
+  }
+
+  .pagefind-ui__result-inner {
+    @apply !mt-0;
+  }
+
+  .pagefind-ui__result-inner mark {
+    @apply bg-transparent text-[var(--primary-color)] rounded-md;
+  }
+
+  .pagefind-ui__button {
+    @apply !mt-0 !font-normal;
+  }
+
+  .pagefind-ui__result-link {
+    @apply text-lg !no-underline hover:!text-[var(--primary-color)] transition-all;
+  }
+
+  .pagefind-ui__drawer::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .pagefind-ui__drawer::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .pagefind-ui__drawer::-webkit-scrollbar-thumb {
+    @apply !bg-black/50 transition-all border-0 rounded-full;
+    @apply dark:!bg-white/50;
+    border: solid transparent;
+    background-clip: content-box;
+  }
+
+  .pagefind-ui__drawer::-webkit-scrollbar-thumb:hover {
+    @apply !bg-black/70;
+    @apply !bg-white/70;
+  }
+
+  .pagefind-ui__drawer::-webkit-scrollbar-thumb:active {
+    @apply !bg-black/90;
+    @apply !bg-white/90;
+  }
+</style>

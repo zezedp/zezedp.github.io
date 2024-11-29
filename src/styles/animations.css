@@ -18,7 +18,7 @@
 
 .onload-animation-fade-in {
     opacity: 0;
-    animation: 800ms fade-in ease-in;
+    animation: 300ms fade-in ease-in;
     animation-fill-mode: forwards;
 }
 
