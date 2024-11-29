@@ -25,7 +25,7 @@ const { languageMapping } = Astro.props;
     <i class="iconfont ic-language icon"></i>
   </button>
   <div class="dropdown-wrapper">
-    <ul class="dropdown">
+    <ul id="language-selector-dropdown" class="dropdown">
       {
         supportedLanguages.map((supportedLanguage: string, index: number) => {
           let value = localizePath(pathname, supportedLanguage);

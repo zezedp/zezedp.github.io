@@ -20,7 +20,7 @@ export default defineConfig({
     tailwind(),
     swup({
       theme: false,
-      containers: ['main', '.banner-inner', '.language-selector'],
+      containers: ['main', '.banner-inner', '#language-selector-dropdown'],
       smoothScrolling: true,
       progress: true,
       cache: true,
