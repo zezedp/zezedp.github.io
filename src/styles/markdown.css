@@ -91,6 +91,10 @@
     border-color: var(--primary-color-lighten) !important;
 }
 
+.article pre {
+    overflow: hidden !important;
+}
+
 .article span.line {
     font-size: 15px !important;
     line-height: normal;

@@ -11,6 +11,7 @@ YukinaConfig.HitokotoSettings.content_types.forEach((type) => {
 
 <script>
   import lozad from "lozad";
+  import { OverlayScrollbars } from "overlayscrollbars";
 
   // 设置文章链接
   const setupUrlAnchor = () => {
@@ -70,18 +71,17 @@ YukinaConfig.HitokotoSettings.content_types.forEach((type) => {
     });
   };
 
+  let globalScrollBar: OverlayScrollbars;
   const setupSearchBtn = () => {
     const searchBtn = document.getElementById("search-btn");
     const searchModal = document.getElementById("search-modal");
     if (!searchBtn || !searchModal) return;
     searchBtn.addEventListener("click", () => {
       searchModal.classList.remove("hidden");
-      document.body.style.overflow = "hidden";
     });
     searchModal.addEventListener("click", (e) => {
       if (e.target === searchModal) {
         searchModal.classList.add("hidden");
-        document.body.style.overflow = "auto";
       }
     });
     // searchModal.addEventListener("keydown", (e) => {
@@ -92,6 +92,31 @@ YukinaConfig.HitokotoSettings.content_types.forEach((type) => {
     // });
   };
 
+  const setupScrollBar = () => {
+    // global
+    globalScrollBar = OverlayScrollbars(
+      { target: document.body, cancel: { nativeScrollbarsOverlaid: true } },
+      {
+        scrollbars: {
+          theme: "scrollbar-base scrollbar-auto py-1",
+          autoHide: "move",
+        },
+      },
+    );
+
+    // pre
+    document.querySelectorAll("pre").forEach((ele) => {
+      OverlayScrollbars(ele, {
+        scrollbars: {
+          theme: "scrollbar-base scrollbar-dark px-2",
+          autoHide: "leave",
+          autoHideDelay: 500,
+          autoHideSuspend: false,
+        },
+      });
+    });
+  };
+
   // 初始化
   const setup = () => {
     setupUrlAnchor();
@@ -99,6 +124,7 @@ YukinaConfig.HitokotoSettings.content_types.forEach((type) => {
     setupHitokoto();
     setupLanguageSelector();
     setupSearchBtn();
+    setupScrollBar();
   };
 
   // 监听事件

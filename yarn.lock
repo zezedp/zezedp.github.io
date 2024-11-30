@@ -7409,6 +7409,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"overlayscrollbars@npm:^2.10.1":
+  version: 2.10.1
+  resolution: "overlayscrollbars@npm:2.10.1"
+  checksum: 10c0/ca31047c1af1b56fc33aa422d8bbebfe4b9ae0a830a2cd2c6d1d3e46228cbb31474c4246f127ccc21d307b9e72dffbecae75018622002cdfd866d38a416d9337
+  languageName: node
+  linkType: hard
+
 "p-finally@npm:^1.0.0":
   version: 1.0.0
   resolution: "p-finally@npm:1.0.0"
@@ -10706,6 +10713,7 @@ __metadata:
     lozad: "npm:^1.16.0"
     mdast-util-to-string: "npm:^4.0.0"
     mdast-util-toc: "npm:^7.1.0"
+    overlayscrollbars: "npm:^2.10.1"
     postcss: "npm:^8.4.47"
     reading-time: "npm:^1.5.0"
     rehype-autolink-headings: "npm:^7.1.0"
