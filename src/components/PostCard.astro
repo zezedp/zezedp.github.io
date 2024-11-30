@@ -34,13 +34,13 @@ function formatDate(date: Date): string {
 }
 ---
 
-<div class="bg-[var(--card-color)] md:rounded-3xl h-[212px] flex flex-row">
-  <div class="flex flex-col w-full lg:w-2/3 xl:w-3/5 pl-3 py-8 space-y-3">
+<div class="flex h-[212px] flex-row bg-[var(--card-color)] md:rounded-3xl">
+  <div class="flex w-full flex-col space-y-3 py-8 pl-3 lg:w-2/3 xl:w-3/5">
     <div class="flex flex-row items-center">
-      <div class="bg-[var(--primary-color)] w-1 mx-2 h-5 rounded-lg"></div>
+      <div class="mx-2 h-5 w-1 rounded-lg bg-[var(--primary-color)]"></div>
       <a href={localizePath(contentUrl)} class="title">{props.title}</a>
     </div>
-    <div class="px-5 space-y-3">
+    <div class="space-y-3 px-5">
       <div>
         <ul class="flex flex-row space-x-4">
           <li class="data space-x-2">
@@ -52,7 +52,7 @@ function formatDate(date: Date): string {
               <li class="data space-x-2">
                 <Icon icon="ic-category" />
                 <a
-                  class="px-1.5 py-0.5 rounded-md text-[var(--text-color-lighten)] hover:bg-[var(--primary-color-lighten)] hover:text-[var(--primary-color)] transition-all"
+                  class="rounded-md px-1.5 py-0.5 text-[var(--text-color-lighten)] transition-all hover:bg-[var(--primary-color-lighten)] hover:text-[var(--primary-color)]"
                   href={localizePath(
                     `/categories/${SlugToRealSlug(props.category)}`,
                   )}
@@ -63,18 +63,18 @@ function formatDate(date: Date): string {
             )
           }
           <li
-            class="hidden md:block lg:hidden xl:block items-center overflow-clip"
+            class="hidden items-center overflow-clip md:block lg:hidden xl:block"
           >
             {
               props.tags && (
                 <div class="data space-x-2">
                   <Icon icon="ic-tag" />
-                  <ul class="flex flex-row space-x-1 items-center">
+                  <ul class="flex flex-row items-center space-x-1">
                     {props.tags.slice(0, 3).map((tag, index) => (
-                      <li class="flex flex-row items-center text-[var(--text-color-lighten)] select-none">
+                      <li class="flex select-none flex-row items-center text-[var(--text-color-lighten)]">
                         {index > 0 && <span class="pr-1">/</span>}
                         <a
-                          class="px-1.5 py-0.5 rounded-md hover:bg-[var(--primary-color-lighten)] hover:text-[var(--primary-color)] transition-all"
+                          class="rounded-md px-1.5 py-0.5 transition-all hover:bg-[var(--primary-color-lighten)] hover:text-[var(--primary-color)]"
                           href={localizePath(`/tags/${SlugToRealSlug(tag)}`)}
                         >
                           {tag}
@@ -120,8 +120,8 @@ function formatDate(date: Date): string {
 </div>
 <style>
   .title {
-    @apply text-2xl font-semibold align-top text-[var(--text-color)];
-    @apply hover:text-[var(--primary-color)] transition-all;
+    @apply align-top text-2xl font-semibold text-[var(--text-color)];
+    @apply transition-all hover:text-[var(--primary-color)];
     font-family: var(--primary-font);
   }
 
@@ -131,42 +131,42 @@ function formatDate(date: Date): string {
   }
 
   .data > span {
-    @apply text-[var(--text-color-lighten)] inline-block align-middle self-center truncate;
+    @apply inline-block self-center truncate align-middle text-[var(--text-color-lighten)];
     font-family: var(--primary-font);
   }
 
   .desc {
-    @apply text-[var(--text-color)] min-h-[24px] truncate;
+    @apply min-h-[24px] truncate text-[var(--text-color)];
     font-family: var(--primary-font);
   }
 
   .reading-time {
-    @apply text-sm text-[var(--text-color-lighten)] align-middle space-x-3;
+    @apply space-x-3 align-middle text-sm text-[var(--text-color-lighten)];
     font-family: var(--primary-font);
   }
 
   .cover-container {
-    @apply hidden lg:block w-1/3 xl:w-2/5 h-full relative ml-2;
+    @apply relative ml-2 hidden h-full w-1/3 select-none lg:block xl:w-2/5;
     clip-path: polygon(0 0%, 100% 0%, 100% 100%, 10% 100%);
   }
 
   .cover-wrapper {
-    @apply w-full h-full rounded-r-3xl overflow-hidden;
+    @apply h-full w-full select-none overflow-hidden rounded-r-3xl;
   }
 
   .cover-wrapper::before {
-    @apply w-0 h-full bg-black opacity-50 rounded-r-3xl absolute left-0;
+    @apply absolute left-0 h-full w-0 select-none rounded-r-3xl bg-black opacity-50;
     content: "";
     z-index: 1;
     transition: all 0.3s;
   }
 
   .cover-wrapper::before:hover {
-    @apply w-full h-full;
+    @apply h-full w-full select-none;
   }
 
   .right-icon {
-    @apply absolute z-[10] text-[4rem] text-white font-bold left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+    @apply absolute left-1/2 top-1/2 z-[10] -translate-x-1/2 -translate-y-1/2 text-[4rem] font-bold text-white;
     clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
     transition: all 0.3s;
   }
@@ -176,6 +176,6 @@ function formatDate(date: Date): string {
   }
 
   .cover {
-    @apply w-full h-full rounded-r-3xl object-cover dark:brightness-90;
+    @apply h-full w-full select-none rounded-r-3xl object-cover dark:brightness-90;
   }
 </style>

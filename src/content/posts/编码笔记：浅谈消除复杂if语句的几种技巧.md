@@ -65,28 +65,28 @@ func FormatTime(Timestamp int64) string {
 func FormatTime(Timestamp int64) string {
 	// 计算出与当前时间的时间差
 	timeDiff := time.Now().Unix() - Timestamp
-	
+
 	if timeDiff < MINUTE {
 		return "刚刚"
 	}
 
-	if timeDiff < HOUR {	
+	if timeDiff < HOUR {
 		return fmt.Sprintf("%d 分钟前", (timeDiff / MINUTE))
 	}
-    
+
 	if timeDiff < DAY {
 		return fmt.Sprintf("%d 小时前", (timeDiff / HOUR))
 	}
-    
+
 	if timeDiff < THREE_DAY {
 		return fmt.Sprintf("%d 天前", (timeDiff / DAY))
 	}
-	
+
 	return time.Unix(Timestamp, 0).Format("2006-01-02")
 }
 ```
 
-可以看到，这样改进代码之后可读性与可维护性高了很多，虽然违背了函数的  **单一出口原则**，但我认为为了代码的可维护性，这样的牺牲是值得的。
+可以看到，这样改进代码之后可读性与可维护性高了很多，虽然违背了函数的 **单一出口原则**，但我认为为了代码的可维护性，这样的牺牲是值得的。
 
 # 使用 switch 语句
 
@@ -110,7 +110,7 @@ func FormatTime(Timestamp int64) string {
 
 	// 计算出与当前时间的时间差
 	timeDiff := time.Now().Unix() - Timestamp
-	
+
 	// 使用构造器格式化时间
 	switch {
 		case timeDiff < MINUTE:
@@ -140,6 +140,7 @@ func FormatTime(Timestamp int64) string {
 在我们的实际业务中，可能某一个情况需要的业务代码很多，或者条件很多甚至于分支过多，导致上述使用上述方法改写过后的代码仍然过于冗长，不便于维护，这时我们就可以考虑使用责任链。
 
 将上述代码用责任链改写后的代码如下：
+
 ```go
 // ...
 // 定义规则接口

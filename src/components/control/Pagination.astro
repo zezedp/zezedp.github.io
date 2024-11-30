@@ -38,7 +38,7 @@ if (props.lastPage <= maxVisiblePages) {
 ---
 
 <div
-  class="space-x-4 flex flex-row justify-center"
+  class="flex flex-row justify-center space-x-4"
   style={props.style}
   class:list={[props.class]}
 >
@@ -75,30 +75,30 @@ if (props.lastPage <= maxVisiblePages) {
 </div>
 <style>
   .button {
-    @apply w-10 h-10 flex flex-row items-center bg-[var(--card-color)] rounded-lg p-1 transition-all hover:brightness-90;
+    @apply flex h-10 w-10 flex-row items-center rounded-lg bg-[var(--card-color)] p-1 transition-all hover:brightness-90;
     @apply dark:bg-[var(--card-color-lighten)] dark:hover:brightness-125;
   }
 
   .button span {
-    @apply w-full text-[var(--primary-color)] text-center;
+    @apply w-full text-center text-[var(--primary-color)];
   }
 
   .button-disabled {
-    @apply w-10 h-10 flex flex-row items-center bg-gray-200 rounded-lg p-1 cursor-not-allowed;
+    @apply flex h-10 w-10 cursor-not-allowed flex-row items-center rounded-lg bg-gray-200 p-1;
     @apply dark:bg-[var(--card-color-lighten)] dark:brightness-50;
   }
 
   .button-disabled span {
-    @apply w-full text-[var(--text-color)] opacity-50 text-center;
+    @apply w-full text-center text-[var(--text-color)] opacity-50;
   }
 
   .button-selected {
-    @apply w-10 h-10 flex flex-row items-center bg-[var(--primary-color)] rounded-lg p-1 cursor-not-allowed;
+    @apply flex h-10 w-10 cursor-not-allowed flex-row items-center rounded-lg bg-[var(--primary-color)] p-1;
     pointer-events: none;
   }
 
   .button-selected span {
-    @apply w-full text-[var(--card-color)] text-center;
+    @apply w-full text-center text-[var(--card-color)];
     @apply dark:text-white/75;
   }
 </style>

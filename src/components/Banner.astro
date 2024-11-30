@@ -28,7 +28,7 @@ const carouselAnimationTime = `${carouselImgsList.length * 6}s`;
 ---
 
 <div id="banner" class="banner onload-animation-fade-in">
-  <div class="w-full h-full transition-main banner-inner">
+  <div class="transition-main banner-inner h-full w-full">
     {
       !hasHeaderImg && (
         <div class="carousel">
@@ -57,8 +57,8 @@ const carouselAnimationTime = `${carouselImgsList.length * 6}s`;
     }
     {
       (
-        <div class="w-full h-[95%] relative">
-          <div class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
+        <div class="relative h-[95%] w-full">
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <div class="flex flex-col">
               <h1
                 class:list={[hasTitle ? "title-normal" : "title-index"]}
@@ -168,18 +168,18 @@ const carouselAnimationTime = `${carouselImgsList.length * 6}s`;
   }
 
   .carousel {
-    @apply absolute top-0 left-0 -z-10 block h-[var(--banner-height)] w-full overflow-hidden bg-white;
+    @apply absolute left-0 top-0 -z-10 block h-[var(--banner-height)] w-full overflow-hidden bg-white;
     /* animation: 300ms banner-onload-animation; */
     animation-fill-mode: forwards;
   }
 
   .carousel::before {
-    @apply absolute top-0 left-0 z-10 block h-full w-full transition-all content-[''] bg-black/25;
+    @apply absolute left-0 top-0 z-10 block h-full w-full bg-black/25 transition-all content-[''];
     @apply dark:bg-black/30;
   }
 
   .carousel .item {
-    @apply absolute top-0 left-0 z-0 h-full w-full bg-cover bg-center bg-no-repeat opacity-0 origin-center;
+    @apply absolute left-0 top-0 z-0 h-full w-full origin-center bg-cover bg-center bg-no-repeat opacity-0;
     animation: carousel-animation var(--carouselAnimationTime) linear infinite
       0s;
     backface-visibility: hidden;
@@ -187,11 +187,11 @@ const carouselAnimationTime = `${carouselImgsList.length * 6}s`;
   }
 
   .fixed {
-    @apply absolute top-0 left-0 z-0 block h-[var(--banner-height)] w-full overflow-hidden bg-white;
+    @apply absolute left-0 top-0 z-0 block h-[var(--banner-height)] w-full overflow-hidden bg-white;
   }
 
   .fixed::before {
-    @apply absolute top-0 left-0 z-10 block h-full w-full transition-all content-[''] bg-black/25;
+    @apply absolute left-0 top-0 z-10 block h-full w-full bg-black/25 transition-all content-[''];
     @apply dark:bg-black/30;
   }
 
@@ -200,7 +200,7 @@ const carouselAnimationTime = `${carouselImgsList.length * 6}s`;
   }
 
   .title {
-    @apply font-bold text-[var(--title-color)] drop-shadow-lg mx-auto text-center;
+    @apply mx-auto text-center font-bold text-[var(--title-color)] drop-shadow-lg;
     font-family: var(--title-font);
   }
 
@@ -213,7 +213,7 @@ const carouselAnimationTime = `${carouselImgsList.length * 6}s`;
   }
 
   .subtitle {
-    @apply text-[var(--subtitle-color)] drop-shadow-md mx-auto text-center;
+    @apply mx-auto text-center text-[var(--subtitle-color)] drop-shadow-md;
     font-size: var(--subtitle-font-size);
     font-family: var(--subtitle-font);
   }

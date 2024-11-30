@@ -43,13 +43,13 @@ const { languageMapping } = Astro.props;
           return (
             (index && (
               <li class="selection language-selection" data-target={value}>
-                <span class="align-top leading-[0] -translate-y-[1px]">
+                <span class="-translate-y-[1px] align-top leading-[0]">
                   {nativeName}
                 </span>
               </li>
             )) || (
               <li class="selection-selected" data-target={value}>
-                <span class="align-top leading-[0] -translate-y-[1px]">
+                <span class="-translate-y-[1px] align-top leading-[0]">
                   {nativeName}
                 </span>
               </li>
@@ -67,12 +67,12 @@ const { languageMapping } = Astro.props;
   }
 
   .btn {
-    @apply py-2 px-3 rounded-lg transition-all text-[var(--text-color)];
+    @apply rounded-lg px-3 py-2 text-[var(--text-color)] transition-all;
     @apply hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color)];
   }
 
   .icon {
-    @apply text-xl stroke-2;
+    @apply stroke-2 text-xl;
   }
 
   .language-selector:hover .dropdown-wrapper,
@@ -81,28 +81,28 @@ const { languageMapping } = Astro.props;
   }
 
   .dropdown-wrapper {
-    @apply hidden absolute top-0 w-11 h-12 translate-y-11;
+    @apply absolute top-0 hidden h-12 w-11 translate-y-11;
   }
 
   .dropdown {
-    @apply absolute -left-1/2 -bottom-24 flex flex-col p-1 rounded-lg space-y-1 bg-[var(--card-color-transparent)] w-32;
+    @apply absolute -bottom-24 -left-1/2 flex w-32 flex-col space-y-1 rounded-lg bg-[var(--card-color-transparent)] p-1;
     opacity: 0;
     animation: 300ms fade-in-down;
     animation-fill-mode: forwards;
   }
 
   .selection {
-    @apply select-none flex flex-row items-center rounded-md pl-2 pr-4 text-[var(--text-color)] hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color)] transition-all;
+    @apply flex select-none flex-row items-center rounded-md pl-2 pr-4 text-[var(--text-color)] transition-all hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color)];
     font-family: var(--primary-font);
   }
 
   .selection-selected {
-    @apply select-none flex flex-row items-center rounded-md p-2 pr-4 bg-[var(--primary-color-hover)] text-[var(--primary-color)] transition-all;
+    @apply flex select-none flex-row items-center rounded-md bg-[var(--primary-color-hover)] p-2 pr-4 text-[var(--primary-color)] transition-all;
     font-family: var(--primary-font);
   }
 
   .selection::before {
-    @apply w-1 h-1 mr-2 rounded-md bg-[var(--primary-color)] transition-all;
+    @apply mr-2 h-1 w-1 rounded-md bg-[var(--primary-color)] transition-all;
     @apply hover:mr-3 hover:h-4;
     content: "";
   }
@@ -113,7 +113,7 @@ const { languageMapping } = Astro.props;
   }
 
   .selection-selected::before {
-    @apply w-1 h-4 mr-3 rounded-md bg-[var(--primary-color)];
+    @apply mr-3 h-4 w-1 rounded-md bg-[var(--primary-color)];
     content: "";
   }
 

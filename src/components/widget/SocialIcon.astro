@@ -8,12 +8,12 @@ const { icon, link } = Astro.props;
 
 <a href={link} target="_blank">
   <div
-    class="w-10 h-10 bg-[var(--primary-color-lighten)] rounded-lg flex flex-col justify-center dark:bg-[var(--card-color-lighten)] hover:brightness-95 dark:hover:brightness-125 transition-all"
+    class="flex h-10 w-10 flex-col justify-center rounded-lg bg-[var(--primary-color-lighten)] transition-all hover:brightness-95 dark:bg-[var(--card-color-lighten)] dark:hover:brightness-125"
   >
     <div class="flex flex-row justify-center">
       <i
         class:list={[icon]}
-        class="text-2xl text-[var(--primary-color)] iconfont dark:text-[var(--text-color)] dark:brightness-[60%]"
+        class="iconfont text-2xl text-[var(--primary-color)] dark:text-[var(--text-color)] dark:brightness-[60%]"
       ></i>
     </div>
   </div>

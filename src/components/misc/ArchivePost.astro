@@ -27,21 +27,21 @@ const formattedDate = formatDate(pubilished);
 <div class="item">
   <a
     href={localizePath(slug)}
-    class="flex flex-row items-center py-2 w-full hover:bg-[var(--primary-color-lighten)] rounded-md select-none transition-colors"
+    class="flex w-full select-none flex-row items-center rounded-md py-2 transition-colors hover:bg-[var(--primary-color-lighten)]"
   >
-    <div class="w-[15%] md:w-[10%] flex flex-row justify-end">
-      <p class="text-[var(--text-color-lighten)] text-sm date">
+    <div class="flex w-[15%] flex-row justify-end md:w-[10%]">
+      <p class="date text-sm text-[var(--text-color-lighten)]">
         {formattedDate}
       </p>
     </div>
-    <div class="flex items-center h-full dash-line md:w-[10%] relative w-[15%]">
+    <div class="dash-line relative flex h-full w-[15%] items-center md:w-[10%]">
       <div
-        class="item-dot transition-all mx-auto z-50 bg-[var(--text-color-lighten)] h-1 outline outline-4 outline-[var(--card-color)] rounded w-1"
+        class="item-dot z-50 mx-auto h-1 w-1 rounded bg-[var(--text-color-lighten)] outline outline-4 outline-[var(--card-color)] transition-all"
       >
       </div>
     </div>
     <div class="flex flex-row">
-      <p class="title text-[var(--text-color)] font-semibold transition-all">
+      <p class="title font-semibold text-[var(--text-color)] transition-all">
         {title}
       </p>
     </div>
@@ -61,12 +61,12 @@ const formattedDate = formatDate(pubilished);
     }
 
     .dash-line::before {
-      @apply content-[''] absolute w-[10%] h-[40px] border-dashed border-l-2 top-1/2 border-l-[var(--text-color)] opacity-25 -translate-y-1/2;
+      @apply absolute top-1/2 h-[40px] w-[10%] -translate-y-1/2 border-l-2 border-dashed border-l-[var(--text-color)] opacity-25 content-[''];
       left: calc(50% - 1px);
     }
 
     .item:hover .item-dot {
-      @apply bg-[var(--primary-color)] outline-[var(--primary-color-lighten)] h-4;
+      @apply h-4 bg-[var(--primary-color)] outline-[var(--primary-color-lighten)];
     }
   </style>
 </div>

@@ -57,7 +57,7 @@ import { YukinaConfig } from "../../yukina.config";
 </nav>
 <style>
   .nav {
-    @apply flex flex-col justify-end w-full fixed left-1/2 z-50 backdrop-blur-md bg-[var(--card-color-transparent)] px-4 select-none transition-all;
+    @apply fixed left-1/2 z-50 flex w-full select-none flex-col justify-end bg-[var(--card-color-transparent)] px-4 backdrop-blur-md transition-all;
     @apply lg:w-[var(--page-width-lg)] lg:rounded-b-2xl xl:w-[var(--page-width-xl)];
     transform: translateX(-50%);
     animation: 500ms nav-onload-animation;
@@ -72,22 +72,22 @@ import { YukinaConfig } from "../../yukina.config";
   }
 
   .nav-content {
-    @apply relative flex items-center justify-between h-[4.5rem] w-full overflow-visible;
+    @apply relative flex h-[4.5rem] w-full items-center justify-between overflow-visible;
   }
 
   .brand {
-    @apply w-full flex flex-row justify-between items-center;
+    @apply flex w-full flex-row items-center justify-between;
     @apply lg:hidden;
   }
 
   .brand > .title {
-    @apply text-[var(--primary-color)] text-2xl content-center py-2 px-4 rounded-lg transition-all;
+    @apply content-center rounded-lg px-4 py-2 text-2xl text-[var(--primary-color)] transition-all;
     @apply hover:bg-[var(--primary-color-hover)];
     font-family: var(--brand-font);
   }
 
   .brand button {
-    @apply w-[44px] h-[44px] mr-2 transition-all rounded-lg flex flex-row items-center text-[var(--text-color)];
+    @apply mr-2 flex h-[44px] w-[44px] flex-row items-center rounded-lg text-[var(--text-color)] transition-all;
     @apply hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color)];
   }
 
@@ -96,28 +96,28 @@ import { YukinaConfig } from "../../yukina.config";
   }
 
   .brand-lg {
-    @apply hidden rounded-lg font-medium px-5 h-[3.25rem] transition-all;
+    @apply hidden h-[3.25rem] rounded-lg px-5 font-medium transition-all;
     @apply lg:block;
     @apply hover:bg-[var(--primary-color-hover)];
     @apply active:scale-95;
   }
 
   .brand-lg > .title {
-    @apply w-24 flex items-center flex-row text-[var(--primary-color)] text-2xl h-full content-center;
+    @apply flex h-full w-24 flex-row content-center items-center text-2xl text-[var(--primary-color)];
     font-family: var(--brand-font);
   }
 
   .brand-lg .icon {
-    @apply text-2xl mr-2 stroke-2;
+    @apply mr-2 stroke-2 text-2xl;
   }
 
   .menu {
-    @apply hidden absolute left-1/2 -translate-x-1/2 items-center justify-between space-x-1 text-lg text-[var(--text-color)] opacity-85;
+    @apply absolute left-1/2 hidden -translate-x-1/2 items-center justify-between space-x-1 text-lg text-[var(--text-color)] opacity-85;
     @apply lg:flex;
   }
 
   .menu a {
-    @apply flex items-center px-6 h-[3.25rem] rounded-lg transition-all;
+    @apply flex h-[3.25rem] items-center rounded-lg px-6 transition-all;
     @apply hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color)];
   }
 
@@ -131,12 +131,12 @@ import { YukinaConfig } from "../../yukina.config";
   }
 
   .toolbar button {
-    @apply min-w-11 max-w-11 py-2 px-3 rounded-lg transition-all text-[var(--text-color)];
+    @apply min-w-11 max-w-11 rounded-lg px-3 py-2 text-[var(--text-color)] transition-all;
     @apply hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color)];
   }
 
   .toolbar .icon {
-    @apply text-xl stroke-2;
+    @apply stroke-2 text-xl;
   }
 
   @keyframes nav-onload-animation {
