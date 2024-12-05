@@ -8,12 +8,13 @@ import ScriptSetup from "./ScriptSetup.astro";
 // styles
 import "overlayscrollbars/overlayscrollbars.css";
 
-import "../styles/theme.css";
+// import "../styles/theme.css";
 import "../styles/animations.css";
 import "../styles/transitions.css";
 import "../styles/scrollbar.css";
 
 import { HeadHrefLangs } from "astro-i18next/components";
+import GlobalStyles from "./GlobalStyles.astro";
 ---
 
 <!-- Global Metadata -->
@@ -57,5 +58,8 @@ import { HeadHrefLangs } from "astro-i18next/components";
 <!-- scripts -->
 <ScriptSetup />
 <script src="../scripts/global.ts"></script>
+
+<!-- GlobalStyles -->
+<GlobalStyles />
 
 <title>{YukinaConfig.Title}</title>
