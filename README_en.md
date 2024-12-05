@@ -64,7 +64,7 @@ yarn preview
 | 🚧     | Optimize animation effects                        |
 | 🚧     | Mobile adaptation                                 |
 | 🚧     | Optimize website performance                      |
-| ⏳     | Adjustable colors                                 |
+| 🧪     | Adjustable colors                                 |
 | ⏳     | Add RSS, SiteMap, etc.                            |
 | ⏳     | More build options (e.g., SLUG generation method) |
 | ⏳     | Add Live2D character                              |
