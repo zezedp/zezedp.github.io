@@ -4,7 +4,7 @@ export const YukinaConfig = {
   UseHitokotoSubtitle: true,
   Description: "Demo Site",
   IconfontURL: "//at.alicdn.com/t/c/font_4507154_ptdxadr7249.css",
-  Avatar: "https://s2.loli.net/2024/08/20/MwPtbr72mRxjsev.webp",
+  Avatar: "https://s2.loli.net/2024/12/06/zNY2H3mcrwhpi8f.webp",
 
   Username: "WhitePaper 白芷",
   Sign: "Ad Astra Per Aspera.",

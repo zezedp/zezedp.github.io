@@ -2,7 +2,7 @@
 
 A simple and elegant Astro blog template.
 
-![Preview](https://s2.loli.net/2024/11/23/uKgnwaWxeZ7RbP5.jpg)
+![Preview](https://s2.loli.net/2024/12/06/KQlEiph216mOZdy.webp)
 
 ## Demo Preview Link
 

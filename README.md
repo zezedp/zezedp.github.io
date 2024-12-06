@@ -2,7 +2,7 @@
 
 简单优雅的 Astro 博客模板
 
-![Preview](https://s2.loli.net/2024/11/23/uKgnwaWxeZ7RbP5.jpg)
+![Preview](https://s2.loli.net/2024/12/06/KQlEiph216mOZdy.webp)
 
 > If you are looking for an English version, please click [here](https://github.com/WhitePaper233/yukina/blob/main/README_en.md).
 
