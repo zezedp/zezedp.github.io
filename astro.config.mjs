@@ -35,7 +35,7 @@ export default defineConfig({
     shikiConfig: {
       theme: "github-dark-default",
     },
-    remarkPlugins: [remarkReadingTime, remarkTOC, remarkMath],
+    remarkPlugins: [remarkReadingTime, remarkMath], // remarkTOC disabled for now
     rehypePlugins: [
       rehypeSlug,
       rehypeKatex,
