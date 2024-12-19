@@ -57,8 +57,9 @@ import { YukinaConfig } from "../../yukina.config";
 </nav>
 <style>
   .nav {
-    @apply fixed left-1/2 z-50 flex w-full select-none flex-col justify-end bg-[var(--card-color-transparent)] px-4 backdrop-blur-md transition-all;
-    @apply lg:w-[var(--page-width-lg)] lg:rounded-b-2xl xl:w-[var(--page-width-xl)];
+    @apply fixed left-1/2 z-50 flex w-full select-none flex-col justify-end bg-[var(--card-color-transparent)] px-2.5 backdrop-blur-md transition-all;
+    @apply lg:w-[var(--page-width-lg)] lg:rounded-b-2xl;
+    @apply xl:w-[var(--page-width-xl)];
     transform: translateX(-50%);
     animation: 500ms nav-onload-animation;
     animation-delay: var(--onload-animation-delay);
@@ -81,7 +82,7 @@ import { YukinaConfig } from "../../yukina.config";
   }
 
   .brand > .title {
-    @apply content-center rounded-lg px-4 py-2 text-2xl text-[var(--primary-color)] transition-all;
+    @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg px-4 py-2 text-2xl font-medium text-[var(--primary-color)] truncate transition-all;
     @apply hover:bg-[var(--primary-color-hover)];
     font-family: var(--brand-font);
   }
@@ -103,7 +104,7 @@ import { YukinaConfig } from "../../yukina.config";
   }
 
   .brand-lg > .title {
-    @apply flex h-full w-24 flex-row content-center items-center text-2xl text-[var(--primary-color)];
+    @apply flex h-full flex-row content-center items-center text-2xl text-[var(--primary-color)];
     font-family: var(--brand-font);
   }
 

@@ -35,7 +35,7 @@ function formatDate(date: Date): string {
 ---
 
 <div class="flex h-[212px] flex-row bg-[var(--card-color)] md:rounded-3xl">
-  <div class="flex w-full flex-col space-y-3 py-8 pl-3 lg:w-2/3 xl:w-3/5">
+  <div class="flex w-full flex-col space-y-3 py-8 pl-3 lg:w-2/3 xl:w-[calc(var(--page-width-xl)-264px)]">
     <div class="flex flex-row items-center">
       <div class="mx-2 h-5 w-1 rounded-lg bg-[var(--primary-color)]"></div>
       <a href={localizePath(contentUrl)} class="title">{props.title}</a>
