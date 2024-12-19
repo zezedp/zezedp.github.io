@@ -1,6 +1,7 @@
 export const YukinaConfig = {
-  Title: "Yukina",
-  SubTitle: "Yukina Template", // doesn't work when UseHitokotoSubtitle is true
+  Title: "Yukina Template",
+  SubTitle: "Yukina Template Demo Site", // doesn't work when UseHitokotoSubtitle is true
+  BrandTitle: "Yukina",
   UseHitokotoSubtitle: true,
   Description: "Demo Site",
   IconfontURL: "//at.alicdn.com/t/c/font_4507154_ptdxadr7249.css",
