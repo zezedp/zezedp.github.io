@@ -1,7 +1,4 @@
 ---
-// @ts-ignore
-import { localizePath } from "astro-i18next";
-
 export interface Props {
   lastPage: number;
   current: number;
@@ -43,7 +40,7 @@ if (props.lastPage <= maxVisiblePages) {
   class:list={[props.class]}
 >
   <a
-    href={localizePath(props.prevURL)}
+    href={props.prevURL}
     class:list={[props.prevURL ? "button" : "button-disabled"]}
   >
     <span>＜</span>
@@ -56,7 +53,7 @@ if (props.lastPage <= maxVisiblePages) {
           <span class="text-md text-[var(--primary-color)]">...</span>
         ) : (
           <a
-            href={localizePath(page === 1 ? "/" : `/${page}`)}
+            href={page === 1 ? "/" : `/${page}`}
             class:list={[page === props.current ? "button-selected" : "button"]}
           >
             <span>{page}</span>
@@ -67,7 +64,7 @@ if (props.lastPage <= maxVisiblePages) {
   </div>
 
   <a
-    href={localizePath(props.nextURL)}
+    href={props.nextURL}
     class:list={[props.nextURL ? "button" : "button-disabled"]}
   >
     <span>＞</span>

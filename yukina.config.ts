@@ -1,38 +1,74 @@
-export const YukinaConfig = {
-  Title: "Yukina Template",
-  SubTitle: "Yukina Template Demo Site", // doesn't work when UseHitokotoSubtitle is true
-  BrandTitle: "Yukina",
-  UseHitokotoSubtitle: true,
-  Description: "Demo Site",
-  IconfontURL: "//at.alicdn.com/t/c/font_4507154_ptdxadr7249.css",
-  Avatar: "https://s2.loli.net/2024/12/06/zNY2H3mcrwhpi8f.webp",
+import I18nKeys from "./src/locales/keys";
+import type { Configuration } from "./src/types/config";
 
-  Username: "WhitePaper 白芷",
-  Sign: "Ad Astra Per Aspera.",
-  SocialLinks: [
+const YukinaConfig: Configuration = {
+  title: "Yukina",
+  subTitle: "Yukina Template Demo Site",
+  brandTitle: "Yukina",
+
+  description: "Demo Site",
+
+  site: "https://yukina-blog.vercel.app",
+
+  locale: "en", // set for website language and date format
+
+  navigators: [
     {
-      icon: "ic-github",
+      nameKey: I18nKeys.nav_bar_home,
+      href: "/",
+    },
+    {
+      nameKey: I18nKeys.nav_bar_archive,
+      href: "/archive",
+    },
+    {
+      nameKey: I18nKeys.nav_bar_about,
+      href: "/about",
+    },
+    {
+      nameKey: I18nKeys.nav_bar_github,
+      href: "https://github.com/WhitePaper233/yukina",
+    },
+  ],
+
+  username: "WhitePaper 白芷",
+  sign: "Ad Astra Per Aspera.",
+  avatarUrl: "https://s2.loli.net/2025/01/17/lUorhYXqFMIyGnj.webp",
+  socialLinks: [
+    {
+      icon: "line-md:github-loop",
       link: "https://github.com/WhitePaper233",
     },
     {
-      icon: "ic-bilibili",
+      icon: "mingcute:bilibili-line",
       link: "https://space.bilibili.com/22433608",
     },
     {
-      icon: "ic-ncm",
+      icon: "mingcute:netease-music-line",
       link: "https://music.163.com/#/user/home?id=125291648",
     },
   ],
 
-  EnableBanner: true,
+  banners: [
+    "https://s2.loli.net/2024/11/23/DIGYWarlfgN4Fnq.webp",
+    "https://s2.loli.net/2024/11/23/TlyqvFUjBxbWsDQ.webp",
+    "https://s2.loli.net/2024/08/20/5fszgXeOxmL3Wdv.webp",
+    "https://s2.loli.net/2024/12/06/uL4YUptnKlPxbaZ.webp",
+    "https://s2.loli.net/2024/12/06/tjG9RkSoiDgF7CA.webp",
+    "https://s2.loli.net/2024/12/06/ntIKl6Lkg3Ta5DF.webp",
+    "https://s2.loli.net/2024/12/06/se2tHfcVqPmzi6F.webp",
+    "https://s2.loli.net/2024/12/06/kKjCBuebX4OUlgw.webp",
+  ],
 
-  // NOT IMPLEMENTED
-  SlugGenerateMode: "HASH", // 'RAW' | 'HASH'
+  slugMode: "HASH", // 'RAW' | 'HASH'
 
-  HitokotoSettings: {
-    // see: https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
-    url: "international.v1.hitokoto.cn",
-    // see: https://developer.hitokoto.cn/sentence/#%E5%8F%A5%E5%AD%90%E7%B1%BB%E5%9E%8B-%E5%8F%82%E6%95%B0
-    content_types: ["a", "b"],
+  license: {
+    name: "CC BY-NC-SA 4.0",
+    url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
   },
+
+  // WIP functions
+  bannerStyle: "LOOP", // 'loop' | 'static' | 'hidden'
 };
+
+export default YukinaConfig;
