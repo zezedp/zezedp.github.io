@@ -44,19 +44,19 @@ pnpm build
 ### 6. Start Development Server
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 ### 7. Build Project
 
 ```bash
-yarn build
+pnpm build
 ```
 
 ### 8. Preview Project
 
 ```bash
-yarn preview
+pnpm preview
 ```
 
 ## 🗺️ Roadmap

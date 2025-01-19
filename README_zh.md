@@ -42,19 +42,19 @@ pnpm build
 ### 6. 启动开发服务器
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 ### 7. 构建项目
 
 ```bash
-yarn build
+pnpm build
 ```
 
 ### 8. 预览项目
 
 ```bash
-yarn preview
+pnpm preview
 ```
 
 ## 🗺️ 路线图
