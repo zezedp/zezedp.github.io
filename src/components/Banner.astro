@@ -138,7 +138,9 @@ const carouselAnimationTime = `${carouselImgsList.length * 6}s`;
   }
   `;
   styleElement.textContent = carouselAnimation;
-  document.getElementById("banner")?.appendChild(styleElement);
+  let bannerElement = document.getElementById("banner");
+  if (bannerElement && !bannerElement.querySelector("style"))
+    bannerElement.appendChild(styleElement);
 </script>
 
 <style define:vars={{ carouselAnimationTime }}>
