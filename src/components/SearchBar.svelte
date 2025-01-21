@@ -81,7 +81,7 @@
     </label>
     <input
       id="search-bar-input"
-      class="w-36 text-[var(--text-color)] xl:focus:w-60 bg-transparent search-bar-input outline-none transition-all"
+      class="w-36 text-[var(--text-color)] xl:focus:w-60 bg-transparent outline-none transition-all"
       placeholder={i18n(I18nKeys.nav_bar_search_placeholder)}
       type="text"
       autocomplete="off"

@@ -110,14 +110,14 @@
   >
     <div class="bg-black/5 dark:bg-white/5 h-10 rounded-lg flex flex-row">
       <label
-        for="search-bar-input"
+        for="search-bar-input-mobile"
         class="w-10 h-10 flex flex-row justify-center items-center pl-2 pr-1 hover:cursor-text text-gray-400"
       >
         <Icon icon="mingcute:search-line" width={24} height={24} />
       </label>
       <input
-        id="search-bar-input"
-        class="text-[var(--text-color)] grow bg-transparent search-bar-input outline-none transition-all"
+        id="search-bar-input-mobile"
+        class="text-[var(--text-color)] grow bg-transparent outline-none transition-all"
         placeholder={i18n(I18nKeys.nav_bar_search_placeholder)}
         type="text"
         autocomplete="off"
