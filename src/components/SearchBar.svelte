@@ -16,18 +16,12 @@
 
   onMount(async () => {
     // setup overlay scrollbars
-    OverlayScrollbars(
-      {
-        target: resultPannel,
-        cancel: { nativeScrollbarsOverlaid: true },
+    OverlayScrollbars(resultPannel, {
+      scrollbars: {
+        theme: "scrollbar-base scrollbar-auto py-1",
+        autoHide: "move",
       },
-      {
-        scrollbars: {
-          theme: "scrollbar-base scrollbar-auto py-1",
-          autoHide: "move",
-        },
-      },
-    );
+    });
 
     /**
      * Asynchronously performs a search based on the provided keyword.
@@ -96,7 +90,7 @@
 <div
   id="result-pannel"
   bind:this={resultPannel}
-  class="max-h-[436px] overflow-y-hidden opacity-0 !absolute h-0 -right-3 w-[28rem] bg-[var(--card-color)] rounded-2xl top-20 transition-all"
+  class="max-h-[436px] overflow-y-scroll opacity-0 !absolute h-0 -right-3 w-[28rem] bg-[var(--card-color)] rounded-2xl top-20 transition-all"
 >
   <div
     class="flex flex-col h-full onload-animation before:content-[''] before:pt-2 after:content-[''] after:pb-2"
@@ -108,7 +102,7 @@
       >
         <div class="flex flex-row space-x-1 items-center">
           <p
-            class="text-lg font-semibold text-[var(--text-color)] result-title"
+            class="line-clamp-1 text-lg font-semibold text-[var(--text-color)] result-title"
           >
             {item.meta.title}
           </p>
