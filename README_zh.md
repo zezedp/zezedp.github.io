@@ -2,7 +2,7 @@
 
 简单优雅的 Astro 博客模板
 
-![Preview](https://s2.loli.net/2024/12/06/KQlEiph216mOZdy.webp)
+![Preview](https://s2.loli.net/2025/01/26/S4URrsj9TFgOKAp.webp)
 
 ## Demo 预览链接
 

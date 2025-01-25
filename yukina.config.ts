@@ -50,14 +50,14 @@ const YukinaConfig: Configuration = {
   ],
 
   banners: [
-    "https://s2.loli.net/2024/11/23/DIGYWarlfgN4Fnq.webp",
-    "https://s2.loli.net/2024/11/23/TlyqvFUjBxbWsDQ.webp",
-    "https://s2.loli.net/2024/08/20/5fszgXeOxmL3Wdv.webp",
-    "https://s2.loli.net/2024/12/06/uL4YUptnKlPxbaZ.webp",
-    "https://s2.loli.net/2024/12/06/tjG9RkSoiDgF7CA.webp",
-    "https://s2.loli.net/2024/12/06/ntIKl6Lkg3Ta5DF.webp",
-    "https://s2.loli.net/2024/12/06/se2tHfcVqPmzi6F.webp",
-    "https://s2.loli.net/2024/12/06/kKjCBuebX4OUlgw.webp",
+    "https://s2.loli.net/2025/01/25/PBvHFjr5yDu6t4a.webp",
+    "https://s2.loli.net/2025/01/25/6bKcwHZigzlM4mJ.webp",
+    "https://s2.loli.net/2025/01/25/H9WgEK6qNTcpFiS.webp",
+    "https://s2.loli.net/2025/01/25/njNVtuUMzxs81RI.webp",
+    "https://s2.loli.net/2025/01/25/tozsJ8QHAjFN3Mm.webp",
+    "https://s2.loli.net/2025/01/25/Pm89OveZq7NWUxF.webp",
+    "https://s2.loli.net/2025/01/25/UCYKvc1ZhgPHB9m.webp",
+    "https://s2.loli.net/2025/01/25/JjpLOW8VSmufzlA.webp",
   ],
 
   slugMode: "HASH", // 'RAW' | 'HASH'

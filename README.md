@@ -2,7 +2,7 @@
 
 Simple and Elegant Astro Blog Template
 
-![Preview](https://s2.loli.net/2024/12/06/KQlEiph216mOZdy.webp)
+![Preview](https://s2.loli.net/2025/01/26/S4URrsj9TFgOKAp.webp)
 
 [中文](https://github.com/WhitePaper233/yukina/blob/main/README_zh.md)
 
