@@ -156,6 +156,7 @@ const navCount = YukinaConfig.navigators.length;
   .menu a {
     @apply flex h-[3.25rem] items-center rounded-lg px-6 transition-all;
     @apply hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color)];
+    @apply active:scale-95;
   }
 
   .menu p {
@@ -311,6 +312,20 @@ const navCount = YukinaConfig.navigators.length;
   document.addEventListener("DOMContentLoaded", () => {
     setTheme(currentTheme);
     menuIconClosed.style.display = "block";
+  });
+
+  // fold nav bar when scroll down
+  const navBarElement = document.getElementById("nav");
+  const bannerElement = document.getElementById("banner");
+  const bannerHeight = bannerElement!.offsetHeight - 50;
+  let lastYPos = 0;
+  window.addEventListener("scroll", () => {
+    if (bannerHeight < window.scrollY && window.scrollY > lastYPos) {
+      navBarElement!.style.top = "-72px";
+    } else {
+      navBarElement!.style.top = "0";
+    }
+    lastYPos = window.scrollY;
   });
 </script>
 
