@@ -20,23 +20,27 @@ const { archiveMap, title, subTitle, bannerImage, slug } = Astro.props;
 <Main title={title} subTitle={subTitle} bannerImage={bannerImage} slug={slug}>
   <div class="archives">
     {
-      archiveMap.keys().map((year) => (
-        <div>
-          <ArchiveYearTitle year={year} count={archiveMap.get(year)!.length} />
-          <ul>
-            {archiveMap.get(year)?.map((entry) => (
-              <li>
-                <ArchivePost
-                  id={entry.id}
-                  title={entry.title}
-                  pubilished={entry.date}
-                  tags={entry.tags}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))
+      archiveMap.size !== 0 &&
+        [...archiveMap.keys()].map((year) => (
+          <div>
+            <ArchiveYearTitle
+              year={year}
+              count={archiveMap.get(year)!.length}
+            />
+            <ul>
+              {archiveMap.get(year)?.map((entry) => (
+                <li>
+                  <ArchivePost
+                    id={entry.id}
+                    title={entry.title}
+                    pubilished={entry.date}
+                    tags={entry.tags}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
     }
   </div>
 </Main>
