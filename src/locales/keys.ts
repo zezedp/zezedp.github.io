@@ -14,13 +14,16 @@ enum I18nKeys {
 
   side_bar_categories = "side_bar_categories",
   side_bar_tags = "side_bar_tags",
+  side_bar_view_more = "side_bar_view_more",
 
   archive_year_title_count = "archive_year_title_count",
-  archive_year_title_count_single = "archive_year_title_count_single",
 
   pages_categories_archive = "pages_categories_archive",
   pages_archive_archive = "pages_archive_archive",
-  pages_tags_archive = "pages_tags_archive"
+  pages_tags_archive = "pages_tags_archive",
+
+  pages_tags_title = "pages_tags_title",
+  pages_categories_title = "pages_categories_title",
 }
 
 export default I18nKeys;

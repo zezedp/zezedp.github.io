@@ -17,11 +17,14 @@ export const en: Translation = {
 
   [key.side_bar_categories]: "Categories",
   [key.side_bar_tags]: "Tags",
+  [key.side_bar_view_more]: "View More",
 
-  [key.archive_year_title_count]: "Total {{}} articles",
-  [key.archive_year_title_count_single]: "Total {{}} article",
+  [key.archive_year_title_count]: "Total {{}} article(s)",
 
   [key.pages_categories_archive]: "Article Archive",
   [key.pages_tags_archive]: "Tag Archive",
   [key.pages_archive_archive]: "Archive",
+
+  [key.pages_tags_title]: "Tags",
+  [key.pages_categories_title]: "Categories",
 };

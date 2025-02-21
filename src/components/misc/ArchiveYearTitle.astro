@@ -24,11 +24,7 @@ const { year, count } = Astro.props;
   </div>
   <div>
     <p class="count select-none text-[var(--text-color-lighten)]">
-      {
-        count == 1 &&
-          i18n(I18nKeys.archive_year_title_count_single, count.toString())
-      }
-      {count == 2 && i18n(I18nKeys.archive_year_title_count, count.toString())}
+      {i18n(I18nKeys.archive_year_title_count, count.toString())}
     </p>
   </div>
 </div>

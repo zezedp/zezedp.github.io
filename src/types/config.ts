@@ -19,6 +19,11 @@ interface Configuration {
 
   socialLinks: { icon: string; link: string }[];
 
+  maxSidebarCategoryChip: number;
+  maxSidebarTagChip: number;
+  maxFooterCategoryChip: number;
+  maxFooterTagChip: number;
+
   banners: string[];
 
   slugMode: "HASH" | "RAW";

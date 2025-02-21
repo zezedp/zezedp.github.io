@@ -48,6 +48,10 @@ const YukinaConfig: Configuration = {
       link: "https://music.163.com/#/user/home?id=125291648",
     },
   ],
+  maxSidebarCategoryChip: 6, // It is recommended to set it to a common multiple of 2 and 3
+  maxSidebarTagChip: 12,
+  maxFooterCategoryChip: 6,
+  maxFooterTagChip: 24,
 
   banners: [
     "https://s2.loli.net/2025/01/25/PBvHFjr5yDu6t4a.webp",

@@ -17,11 +17,14 @@ export const zh_CN: Translation = {
 
   [key.side_bar_categories]: "分类",
   [key.side_bar_tags]: "标签",
+  [key.side_bar_view_more]: "查看更多",
 
   [key.archive_year_title_count]: "共 {{}} 篇文章",
-  [key.archive_year_title_count_single]: "共 {{}} 篇文章",
 
   [key.pages_categories_archive]: "文章归档",
   [key.pages_tags_archive]: "标签归档",
   [key.pages_archive_archive]: "归档",
+
+  [key.pages_tags_title]: "标签",
+  [key.pages_categories_title]: "分类",
 };
