@@ -5,7 +5,10 @@ import BaseHead from "../components/BaseHead.astro";
 
 <html lang={YukinaConfig.locale}>
   <BaseHead />
-  <body class="overflow-y-hidden">
+  <head>
+	      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
+  </head>
+  <body class="font-mono text-foreground bg-background">
     <slot />
   </body>
 </html>

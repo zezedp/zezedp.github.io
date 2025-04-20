@@ -1,5 +1,9 @@
-# Special thanks to:
+# About
+Hey! I'm **b1lb0**, a computer science major at UFRJ who takes interest in **Cryptography** and **Computer Networking**. Here you can find some of my projects and CTF write-ups.
+ 
+Feel free to check out my [YouTube channel](https://www.youtube.com/@guilhermecappelli6411) where i teach **Foundations of Cryptography** - explaining mathematical concepts in a clear and accessible way.
 
-- [Hexo Shoka theme](https://github.com/amehime/hexo-theme-shoka) for providing design inspiration
+> ### Certifications
+> - [Red Hat System Administration I (RH124)](https://zezedp.github.io/assets/pdf/certificado_redhat.pdf)
 
-- [Astro Fuwari template](https://github.com/saicaca/fuwari) for providing the main design concept and part of the implementation
+

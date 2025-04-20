@@ -1,16 +1,16 @@
-import I18nKeys from "./src/locales/keys";
+	import I18nKeys from "./src/locales/keys";
 import type { Configuration } from "./src/types/config";
 
 const YukinaConfig: Configuration = {
-  title: "Yukina",
-  subTitle: "Yukina Template Demo Site",
-  brandTitle: "Yukina",
+  title: "b1lb0's crypto blog",
+  subTitle: "",
+ brandTitle: "b1lb0",
 
-  description: "Demo Site",
+  description: "b1lb0's cryptography blog",
 
-  site: "https://yukina-blog.vercel.app",
+  site: "https://zezedp.github.io",
 
-  locale: "en", // set for website language and date format
+  locale: "br", // set for website language and date format
 
   navigators: [
     {
@@ -27,21 +27,21 @@ const YukinaConfig: Configuration = {
     },
     {
       nameKey: I18nKeys.nav_bar_github,
-      href: "https://github.com/WhitePaper233/yukina",
+      href: "https://github.com/zezedp/",
     },
   ],
 
-  username: "WhitePaper 白芷",
-  sign: "Ad Astra Per Aspera.",
-  avatarUrl: "https://s2.loli.net/2025/01/25/FPpTrQSezM8ivbl.webp",
+  username: "b1lb0",
+  sign: "just a CS major interested in cryptography.",
+  avatarUrl: "https://i.pinimg.com/736x/5a/d8/72/5ad872eeca3e987f9325649e2d2524a1.jpg",
   socialLinks: [
     {
       icon: "line-md:github-loop",
-      link: "https://github.com/WhitePaper233",
+      link: "https://github.com/zezedp",
     },
     {
-      icon: "mingcute:bilibili-line",
-      link: "https://space.bilibili.com/22433608",
+      icon: "mingcute:youtube-line",
+      link: "https://youtube.com/@guilhermecappelli6411",
     },
     {
       icon: "mingcute:netease-music-line",
@@ -54,25 +54,20 @@ const YukinaConfig: Configuration = {
   maxFooterTagChip: 24,
 
   banners: [
-    "https://s2.loli.net/2025/01/25/PBvHFjr5yDu6t4a.webp",
-    "https://s2.loli.net/2025/01/25/6bKcwHZigzlM4mJ.webp",
-    "https://s2.loli.net/2025/01/25/H9WgEK6qNTcpFiS.webp",
-    "https://s2.loli.net/2025/01/25/njNVtuUMzxs81RI.webp",
-    "https://s2.loli.net/2025/01/25/tozsJ8QHAjFN3Mm.webp",
-    "https://s2.loli.net/2025/01/25/Pm89OveZq7NWUxF.webp",
-    "https://s2.loli.net/2025/01/25/UCYKvc1ZhgPHB9m.webp",
-    "https://s2.loli.net/2025/01/25/JjpLOW8VSmufzlA.webp",
+     "https://external-preview.redd.it/microdata-refinement-severance-v0-eWI2dzZ0M2Qyd2ZlMfGK8pkum0_zjJqIqVL1ZCiDTPIMqiOlqT6jhydKojNM.png?format=pjpg&auto=webp&s=f8cf3a81bd5c0b078b38244e0808e6d68ebfae40",
+"https://external-preview.redd.it/microdata-refinement-severance-v0-eWI2dzZ0M2Qyd2ZlMfGK8pkum0_zjJqIqVL1ZCiDTPIMqiOlqT6jhydKojNM.png?format=pjpg&auto=webp&s=f8cf3a81bd5c0b078b38244e0808e6d68ebfae40",
   ],
 
-  slugMode: "HASH", // 'RAW' | 'HASH'
+  slugMode: "RAW",// 'RAW' | 'HASH'
 
   license: {
     name: "CC BY-NC-SA 4.0",
     url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
   },
 
-  // WIP functions
-  bannerStyle: "LOOP", // 'loop' | 'static' | 'hidden'
+  // WIP function
+  bannerStyle: "LOOP" // 'loop' | 'static' | 'hidden'
 };
+
 
 export default YukinaConfig;

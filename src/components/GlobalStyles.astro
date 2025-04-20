@@ -8,18 +8,19 @@ import "overlayscrollbars/overlayscrollbars.css";
 
 <style is:global>
   :root {
-    --hue: 300;
+    --hue: 60;
 
-    --primary-color: oklch(70% 0.15 var(--hue));
-    --primary-color-lighten: oklch(95% 0.02 var(--hue));
-    --primary-color-hover: oklch(90% 0.025 var(--hue));
-    --primary-color-transparent: oklch(70% 0.15 var(--hue) / 15%);
-    --text-color: oklch(30% 0 0);
-    --text-color-lighten: oklch(50% 0 0);
-    --card-color: oklch(100% 0 0);
-    --card-color-transparent: oklch(100% 0 0 / 85%);
-    --background-color: oklch(97% 0.01 var(--hue));
-
+    --primary-color: #ffb86c; /* cor de destaque */
+    --primary-color-lighten: #333333; /* tom mais claro de destaque */
+    --primary-color-hover: #424455; /* cor ao passar o mouse */
+    --primary-color-transparent: rgba(255, 184, 108, 0.15); /* cor transparente de destaque */
+    --text-color: #fb923c; /* cor do texto */
+    --text-color-lighten: #e0e0e0; /* texto mais claro */
+    --card-color: #1e1e1e; /* cor de fundo dos cards */
+    --card-color-transparent: rgba(30, 30, 30, 0.85); /* fundo transparente para cards */
+    --background-color: #282424; /* fundo geral */
+    --border-color: #44475a; /* cor das bordas */
+    
     --brand-font: "Raleway", "Noto Sans SC", sans-serif;
     --primary-font: "Noto Sans SC", sans-serif;
     --code-font: "JetBrains Mono", "Fira Code", monospace;
@@ -27,26 +28,32 @@ import "overlayscrollbars/overlayscrollbars.css";
     --page-width-lg: 992px;
     --page-width-xl: 1264px;
 
-    --banner-height: 55vh;
+    --banner-height: 45vh;
     --title-font: var(--brand-font);
-    --title-color: oklch(100% 0 0 / 95%);
+    --title-color: #ffb86c; /* cor dos títulos */
     --subtitle-font: var(--brand-font);
-    --subtitle-color: oklch(100% 0 0 / 85%);
+    --subtitle-color: #ff5555; /* cor dos subtítulos */
 
     --onload-animation-delay: 100ms;
     --onload-animation-interval: 100ms;
   }
 
   :root.dark {
-    --primary-color: oklch(70% 0.125 var(--hue));
-    --primary-color-lighten: oklch(40% 0.04 var(--hue));
-    --primary-color-hover: oklch(20% 0.015 var(--hue));
-    --text-color: oklch(95% 0.002 var(--hue));
-    --text-color-lighten: oklch(90% 0.002 var(--hue));
-    --card-color: oklch(25% 0.02 var(--hue));
-    --card-color-lighten: oklch(40% 0.04 var(--hue));
-    --card-color-transparent: oklch(30% 0.025 var(--hue) / 85%);
-    --background-color: oklch(17.5% 0.015 var(--hue));
+    --primary-color: #ffb86c;
+    --primary-color-lighten: #333333;
+    --primary-color-hover: #333333;
+    --text-color: #fb923c; /*#f8f8f2;*/
+    --text-color-lighten: #e0e0e0;
+    --card-color: #1e1e1e;
+    --card-color-lighten: #333333;
+    --card-color-transparent: rgba(30, 30, 30, 0.85);
+    --background-color: #282424;
+    --border-color: #44475a;
+  }
+
+  ::selection{
+	  background-color: #fb923c;
+	  color: #1a1a1a;
   }
 
   .swup-progress-bar {
@@ -54,3 +61,4 @@ import "overlayscrollbars/overlayscrollbars.css";
     background-color: var(--primary-color);
   }
 </style>
+
