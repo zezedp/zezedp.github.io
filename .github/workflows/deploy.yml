@@ -1,0 +1,33 @@
+name: Deploy Astro site to GitHub Pages
+
+on:
+  push:
+    branches: [main] # troque "main" se o nome do seu branch for outro
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Gerar build do site
+        run: npm run build
+
+      - name: Deploy no GitHub Pages
+        uses: withastro/action@v2
+        with:
+          path: dist
+
