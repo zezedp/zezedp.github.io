@@ -1,0 +1,4 @@
+
+User-agent: *
+Allow: /
+Sitemap: https://zezedp.github.io/sitemap-index.xml
