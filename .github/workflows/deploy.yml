@@ -2,7 +2,7 @@ name: Deploy Astro site to GitHub Pages
 
 on:
   push:
-    branches: [main] # troque "main" se o nome do seu branch for outro
+    branches: [main] # Troque "main" se o nome do seu branch for outro
 
 permissions:
   contents: write
@@ -20,14 +20,18 @@ jobs:
         with:
           node-version: 20
 
+      - name: Instalar pnpm
+        run: npm install -g pnpm
+
       - name: Instalar dependências
-        run: npm install
+        run: pnpm install
 
       - name: Gerar build do site
-        run: npm run build
+        run: pnpm run build
 
       - name: Deploy no GitHub Pages
         uses: withastro/action@v2
         with:
           path: dist
           package-manager: pnpm
+
