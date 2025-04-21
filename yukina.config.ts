@@ -54,8 +54,6 @@ const YukinaConfig: Configuration = {
   maxFooterTagChip: 24,
 
   banners: [
-     "https://external-preview.redd.it/microdata-refinement-severance-v0-eWI2dzZ0M2Qyd2ZlMfGK8pkum0_zjJqIqVL1ZCiDTPIMqiOlqT6jhydKojNM.png?format=pjpg&auto=webp&s=f8cf3a81bd5c0b078b38244e0808e6d68ebfae40",
-"https://external-preview.redd.it/microdata-refinement-severance-v0-eWI2dzZ0M2Qyd2ZlMfGK8pkum0_zjJqIqVL1ZCiDTPIMqiOlqT6jhydKojNM.png?format=pjpg&auto=webp&s=f8cf3a81bd5c0b078b38244e0808e6d68ebfae40",
   ],
 
   slugMode: "RAW",// 'RAW' | 'HASH'
