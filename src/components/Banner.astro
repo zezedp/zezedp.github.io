@@ -7,62 +7,60 @@ export interface Props {
   subTitle?: string;
   bannerImage?: string;
   slug?: string;
+  isStatic?: boolean; // nova prop
 }
-const { title, subTitle, bannerImage, slug } = Astro.props;
+const { title, subTitle, bannerImage, slug, isStatic } = Astro.props;
 
 const hasTitle = title !== undefined || subTitle !== undefined;
-const hasHeaderImg = bannerImage !== undefined || slug !== undefined;
+
+const bannerStyle = YukinaConfig.bannerStyle?.toLowerCase();
+const useStaticBanner = isStatic ?? bannerStyle === "static";
+const useLoopBanner = !useStaticBanner && bannerStyle === "loop";
+
+const showCoverImage = useStaticBanner || bannerImage !== undefined || slug !== undefined;
 
 let carouselImgsList = YukinaConfig.banners;
 const carouselAnimationTime = `${carouselImgsList.length * 6}s`;
+
 ---
 
 <div id="banner" class="banner onload-animation-fade-in">
   <div class="transition-main banner-inner h-full w-full">
-      ){
-  YukinaConfig.bannerStyle === "LOOP" ? (
-    <div class="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
-      <iframe
-        src="https://zoomquilt.org"
-        class="absolute top-0 left-0 w-full h-full min-h-[300px] lg:min-h-[500px] zoomquilt-frame"
-        frameborder="0"
-        allowfullscreen
-        loading="lazy"
-        style="z-index: -1;"
-      />
-    </div>
-  ) : hasHeaderImg ? (
-        <div class="cover">
-          <img
+	  {
+  !useLoopBanner && !showCoverImage &&(
+    <div class="carousel">
+      <ul id="carousel_imgs">
+        {carouselImgsList.map((img, index) => (
+          <li
             class="item lozad"
-            data-src={bannerImage ?? GetCoverURLForUnspecifiedEntry(slug ?? "")}
-            alt="PostCover"
+            style={{ animationDelay: `${index * 6}s` }}
+            data-background-image={img}
           />
-        </div>
-      ) : (
-        <div class="carousel">
-          <ul id="carousel_imgs">
-            {carouselImgsList.map((img, index) => (
-              <li
-                class="item lozad"
-                style={{ animationDelay: `${index * 6}s` }}
-                data-background-image={img}
-              />
-            ))}
-          </ul>
-        </div>
-      )
-    }
+        ))}
+      </ul>
+    </div>
+  )
+}
+{
+  showCoverImage && (
+    <div class="cover">
+      <img
+        class="item lozad"
+        data-src={bannerImage ?? GetCoverURLForUnspecifiedEntry(slug ?? "")}
+	alt = "PostCoverr"
+	/>
+    </div>
+  )
+}
 
-    <div class="relative h-[95%] w-full">
+
+
+	  <div class="relative h-[95%] w-full">
       <div
         class="absolute left-1/2 top-1/2 w-4/5 -translate-x-1/2 -translate-y-1/2 lg:w-3/4"
       >
         <div class="flex flex-col">
-          <h1
-            class:list={[hasTitle ? "title-normal" : "title-index"]}
-            class="title"
-          >
+		 <h1 class={`title ${hasTitle ? "title-normal" : "title-index"}`}>
             {title ?? YukinaConfig.title}
           </h1>
           <h2 class="subtitle">{subTitle ?? YukinaConfig.subTitle}</h2>
@@ -70,7 +68,6 @@ const carouselAnimationTime = `${carouselImgsList.length * 6}s`;
       </div>
     </div>
   </div>
-
   <div class="waves" id="header-waves">
     <svg
       class="waves"
@@ -84,7 +81,8 @@ const carouselAnimationTime = `${carouselImgsList.length * 6}s`;
         <path
           id="gentle-wave"
           d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
-        />
+        >
+        </path>
       </defs>
       <g class="parallax">
         <use
@@ -92,24 +90,24 @@ const carouselAnimationTime = `${carouselImgsList.length * 6}s`;
           x="48"
           y="0"
           class="opacity-25"
-          style={{ animationDelay: "-2s", animationDuration: "7s" }} />
+          style={{ animationDelay: "-2s", animationDuration: "7s" }}></use>
         <use
           xlink:href="#gentle-wave"
           x="48"
           y="3"
           class="opacity-50"
-          style={{ animationDelay: "-3s", animationDuration: "10s" }} />
+          style={{ animationDelay: "-3s", animationDuration: "10s" }}></use>
         <use
           xlink:href="#gentle-wave"
           x="48"
           y="5"
           class="opacity-75"
-          style={{ animationDelay: "-4s", animationDuration: "13s" }} />
+          style={{ animationDelay: "-4s", animationDuration: "13s" }}></use>
         <use
           xlink:href="#gentle-wave"
           x="48"
           y="7"
-          style={{ animationDelay: "-5s", animationDuration: "20s" }} />
+          style={{ animationDelay: "-5s", animationDuration: "20s" }}></use>
       </g>
     </svg>
   </div>
@@ -150,7 +148,7 @@ const carouselAnimationTime = `${carouselImgsList.length * 6}s`;
   let bannerElement = document.getElementById("banner");
   if (bannerElement && !bannerElement.querySelector("style"))
     bannerElement.appendChild(styleElement);
-</script>
+  </script>
 
 <style define:vars={{ carouselAnimationTime }}>
   .banner {
@@ -169,7 +167,8 @@ const carouselAnimationTime = `${carouselImgsList.length * 6}s`;
 
   .carousel .item {
     @apply absolute left-0 top-0 z-0 h-full w-full origin-center bg-cover bg-center bg-no-repeat opacity-0;
-    animation: carousel-animation var(--carouselAnimationTime) linear infinite 0s;
+    animation: carousel-animation var(--carouselAnimationTime) linear infinite
+      0s;
     backface-visibility: hidden;
     transform-style: preserve-3d;
   }
@@ -234,16 +233,5 @@ const carouselAnimationTime = `${carouselImgsList.length * 6}s`;
       height: var(--banner-height);
     }
   }
-
-  .zoomquilt-frame {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  border: none;
-  pointer-events: none; /* impede cliques no zoomquilt */
-}
 </style>
 

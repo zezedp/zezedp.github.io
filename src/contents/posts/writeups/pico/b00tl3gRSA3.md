@@ -1,7 +1,7 @@
 ---
 title: "b00tl3gRSA3" 
 published: 2025-04-19
-description: "a picoCTF write-up"
+description: "Using ECM factorization algorithm to break RSA."
 tags: [picoCTF]
 category: Write-Ups 
 draft: false
