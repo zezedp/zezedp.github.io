@@ -33,7 +33,7 @@ const YukinaConfig: Configuration = {
 
   username: "b1lb0",
   sign: "just a CS major interested in cryptography.",
-  avatarUrl: "https://zezedp.github.io/dist/docs/manny.jpg",
+  avatarUrl:"https://i.pinimg.com/564x/b7/ba/b6/b7bab6d522c919d6dbd2954e681d4f26.jpg",
   socialLinks: [
     {
       icon: "line-md:github-loop",
